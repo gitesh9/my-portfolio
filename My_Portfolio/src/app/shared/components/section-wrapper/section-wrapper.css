@@ -1,0 +1,155 @@
+.section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.projects-section {
+  padding: 4em;
+  font-size: 0.75em;
+  background-color: black;
+  max-width: 100%;
+}
+
+:host-context([data-theme="light"]) .projects-section {
+  background-color: hsl(20 8% 95%);
+}
+
+:host-context([data-theme="light"]) .skills-section {
+  background-color: hsl(20 8% 95%);
+}
+
+.skills-section {
+  position: relative;
+  /* background: #000; */
+  /* overflow: hidden; */
+  /* Creates a radial gradient that's transparent at the bottom-left edge */
+  /* Or use ellipse for more control: mask: radial-gradient(50% 70px at 0% 100%, transparent 0%, black 50%); */
+  background: black;
+}
+
+.work-exp-section{
+  position: relative;
+  background-color: black;
+  padding-top: 10rem;
+  /* max-width: 72rem; */
+}
+
+/* .skills-section{
+  min-height: 420px;
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+
+  background:
+    radial-gradient(1200px 600px at 15% 20%, rgba(90,160,255,.22), transparent 60%),
+    radial-gradient(900px 500px at 80% 35%, rgba(130,120,255,.18), transparent 62%),
+    radial-gradient(700px 420px at 35% 95%, rgba(0,220,255,.10), transparent 60%),
+    linear-gradient(135deg, #050a1a 0%, #07102c 40%, #04133b 100%);
+}
+
+.skills-section::before{
+  content:"";
+  position:absolute; inset:-20%;
+  background:
+    radial-gradient(closest-side at 25% 35%, rgba(120,90,255,.35), transparent 65%),
+    radial-gradient(closest-side at 78% 30%, rgba(40,210,255,.22), transparent 62%),
+    radial-gradient(closest-side at 65% 85%, rgba(255,80,180,.10), transparent 60%);
+  filter: blur(22px);
+  opacity: .9;
+  transform: rotate(-8deg);
+  pointer-events:none;
+}
+
+.skills-section::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(900px 500px at 50% 40%, rgba(255,255,255,.05), transparent 55%),
+    radial-gradient(1200px 700px at 50% 50%, transparent 55%, rgba(0,0,0,.55) 100%);
+  mix-blend-mode: screen;
+  opacity: .8;
+  pointer-events:none;
+} */
+
+.skills-section{
+  min-height: 420px;
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 10rem;
+}
+
+.skills-section::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
+  width: 100%;
+  height:100%;
+  /* background: radial-gradient(circle at 12% 0%, transparent 50%, #fff493 100%); */
+  /* background: radial-gradient(circle at 3% -100%, transparent 71%, goldenrod 100%); */
+  background: radial-gradient(circle at 0% -100%, transparent 62%, goldenrod 100%);
+  opacity: 0.5;
+}
+
+.work-exp-section::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height:100%;
+  /* background: radial-gradient(circle at 12% 0%, transparent 50%, #fff493 100%); */
+  /* background: radial-gradient(circle at 3% -100%, transparent 71%, goldenrod 100%); */
+  /* background: linear-gradient(
+    to top,
+    transparent 0%,
+    goldenrod 100%
+  ); */
+  /* background: radial-gradient(circle at 0% 100%, transparent 60%, goldenrod 100%); */
+  background: radial-gradient(circle at 0% 100%, transparent 51%, goldenrod 100%);
+  opacity: 0.2;
+}
+
+/* .skills-section::before{
+  content:"";
+  position:absolute;
+  inset:-20%;
+  filter: blur(26px);
+  opacity: .95;
+  transform: rotate(-8deg);
+  pointer-events:none;
+}
+
+.skills-section::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  mix-blend-mode: screen;
+  opacity: .85;
+  pointer-events:none;
+}
+
+
+.content{
+  position: relative;
+  padding: 42px 44px;
+  color: #ffe818;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+} */
+
+/* Optional: faint grid like a tech UI (toggle on if you want) */
+.skills-section.grid::after{
+  /* keep the existing ::after by moving this into another overlay div if you need both */
+}
+
+
+.testimonial-section{
+  background-color: rgb(14, 9, 9);
+}
+
+.contact-section{
+  background-color: rgb(0, 0, 0);
+}

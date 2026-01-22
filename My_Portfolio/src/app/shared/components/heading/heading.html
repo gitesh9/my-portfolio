@@ -1,0 +1,22 @@
+@switch (tagName){
+  @case ('h1'){
+    <h1 [ngClass]="[classNames, 'sm:mb-4 font-display text-4xl md:text-5xl lg:text-6xl', 'heading', 'page-heading']">
+      <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </h1>
+  }
+  @case ('h2'){
+    <h2 [ngClass]="[classNames, 'heading']">
+      <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </h2>
+  }
+  @case ('h3'){
+    <h3 [ngClass]="[classNames, 'heading']">
+      <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </h3>
+  }
+  @case ('h4'){
+    <h4 [ngClass]="[classNames, 'heading']">
+      <ng-container *ngTemplateOutlet="contentTpl"></ng-container>
+    </h4>
+  }
+}

@@ -1,0 +1,16 @@
+<div class="tags-container">
+  @for (tag of allTags;let i = $index; track $index) {
+    @if (tagType==='a') {
+        <a [href]="links[i]" [ngClass]="[classNames]">
+          <span>
+            {{tag}}
+          </span>
+        </a>
+      }
+  @else {
+    <span class="tag">
+      {{tag}}
+    </span>
+  }
+  }
+</div>
