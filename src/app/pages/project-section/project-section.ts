@@ -1,21 +1,36 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, ElementRef } from '@angular/core';
+import { ChangeDetectorRef, Component, computed, effect, ElementRef, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { Heading } from '@app/shared/components/heading/heading';
 import { SectionWrapper } from '@app/shared/components/section-wrapper/section-wrapper';
 import { Tags } from "@app/shared/components/tags/tags";
 import { Card } from "@app/shared/components/card/card";
+import { DataProvider } from '@app/data-provider';
+import { FILTER_CATEGORIES, FilterCategory, Project } from 'assets/user_data';
 
 @Component({
   selector: 'app-project-section',
-  imports: [CommonModule, RouterLink, SectionWrapper, Heading, Tags, Card],
+  imports: [CommonModule, SectionWrapper, Heading, Tags, Card],
   templateUrl: './project-section.html',
   styleUrl: './project-section.css',
 })
 export class ProjectSection {
   visibleItems: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  selectedCategory = signal<FilterCategory | null>('All');
+  data = signal<Project[]|null>(null)
+  FILTER_CATEGORIES:readonly FilterCategory[];
+  hoveredIndex = signal<number | null>(null);
 
-  constructor(private el: ElementRef) { }
+  constructor(private el: ElementRef, private dataProvider: DataProvider) {
+    this.data.set(dataProvider.getProjects())
+    this.FILTER_CATEGORIES = FILTER_CATEGORIES
+    effect(() => {
+      this.filteredProjects();
+      queueMicrotask(() => {
+        this.showCards();
+      });
+    });
+  }
 
   ngAfterViewInit() {
     // Simulate loading items with a delay for animation effect
@@ -42,14 +57,12 @@ export class ProjectSection {
             // observer.disconnect(); // trigger once
           } else {
             // Remove visible class when not in view
-            // const card = entry.target as HTMLElement;
-            // card.classList.remove('visible');
-            // index -= 1
-            // cards.forEach((card: any) => card.classList.remove('visible'));
+            const card = entry.target as HTMLElement;
+            card.classList.remove('visible');
           }
         });
       },
-      { threshold: 0.25 }
+      { threshold: 0.3 }
     );
 
     const headerObserver = new IntersectionObserver(
@@ -70,4 +83,36 @@ export class ProjectSection {
     });
   }
 
+  showCards(){
+    const cards = this.el.nativeElement.querySelectorAll('.project-card');
+    console.log("triggered: ",cards)
+    let index = 0
+    cards.forEach((card: HTMLElement) => {
+      setTimeout(() => {
+        card.classList.add('visible');
+      }, index * 200);
+      index+=1
+    });
+  }
+
+  handleSelect(filter:FilterCategory){
+    this.selectedCategory.update(current =>
+      current === filter ? "All" : filter
+    );
+  }
+
+  filteredProjects = computed(() => {
+    const selected = this.selectedCategory();
+    const projects = this.data();
+
+    if (!projects) return [];
+
+    if (selected === "All") {
+      return projects;
+    }
+    if(!selected) return projects
+    return projects.filter(project =>
+      project.category.includes(selected)
+    );
+  });
 }

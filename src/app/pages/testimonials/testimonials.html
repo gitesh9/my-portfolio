@@ -1,25 +1,33 @@
 <app-section-wrapper pageId="testimonials" [classes]="'testimonial-section'">
   <app-heading classNames="linear-gradient-red">
     <ng-template>
-      Achievements
+      Testimonials
     </ng-template>
   </app-heading>
   <div class="achievements-testimonials">
-    <app-card classNames="achievement-card">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote w-10 h-10 text-primary absolute top-6 right-6"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
-      <p class="details">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, illo voluptas. Esse architecto provident debitis sunt possimus, qui ex consequatur, autem optio itaque nesciunt nemo! Ipsum doloribus ducimus nostrum eaque?</p>
-      @if (testimonial) {
-        <div class="person-card">
-          <div class="image">
-            <span class="text-primary">SA</span>
-          </div>
-          <div class="name-designation">
-            <app-heading tagName="h4" classNames="person-name" [animate]="false"><ng-template>Sarah ABC</ng-template></app-heading>
-            <p class="designation">Engineering Manager at TechCorp Inc.</p>
-          </div>
+    @if (displayTestimonial()) {
+      <app-card classNames="achievement-card">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-quote w-10 h-10 text-primary absolute top-6 right-6"><path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path><path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z"></path></svg>
+        <p class="details">{{displayTestimonial()?.description}}</p>
+        @if(displayTestimonial()?.user?.isVisible){
+            <div class="person-card">
+              <div class="image">
+                <span class="text-primary">{{getInitials()}}</span>
+              </div>
+              <div class="name-designation">
+                <app-heading tagName="h4" classNames="person-name" [animate]="false"><ng-template>{{displayTestimonial()?.user?.name}}</ng-template></app-heading>
+                <p class="designation">{{displayTestimonial()?.user?.title}}</p>
+              </div>
+            </div>
+          }
+      </app-card>
+    }@else{
+      <app-card classNames="achievement-card">
+        <div>
+          <img src="" />
         </div>
-      }
-
-    </app-card>
-  </div>
+        <p class="details">{{displayAchievement()?.title?.name}}</p>
+      </app-card>
+  }
+</div>
   </app-section-wrapper>

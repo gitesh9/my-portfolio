@@ -1,9 +1,10 @@
 <div class="tags-container">
   @for (tag of allTags;let i = $index; track $index) {
-    @if (tagType==='a') {
-        <a [href]="links[i]" [ngClass]="[classNames]">
+    @if (tagType==='a' && typeof tag==='object') {
+        <a [href]="tag.link" target="_blank" [ngClass]="[classNames]" class="link">
           <span>
-            {{tag}}
+            {{tag.name}}
+            <img class="link-svg" src="assets/arrow-up-right.svg">
           </span>
         </a>
       }

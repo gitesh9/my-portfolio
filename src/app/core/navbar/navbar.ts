@@ -12,10 +12,25 @@ import { ScrollSpy } from '@app/shared/directives/scroll-directive/scroll-spy';
 })
 export class Navbar {
   isLightTheme = false;
+  isMobile = false;
+  isMobileMenuOpen = false
   protected themeService: ThemeService;
   constructor(themeService: ThemeService) {
     this.themeService = themeService;
     this.isLightTheme = this.themeService.getTheme() === 'light';
+  }
+
+  ngOnInit() {
+    this.updateScreenSize();
+    window.addEventListener('resize', this.updateScreenSize);
+  }
+
+  updateScreenSize = () => {
+    this.isMobile = window.innerWidth < 800;
+  };
+
+  ngOnDestroy() {
+    window.removeEventListener('resize', this.updateScreenSize);
   }
 
   toggleTheme() {

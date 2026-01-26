@@ -1,3 +1,4 @@
-<div [id]="id" [ngClass]="[classNames,'card']">
+<div [id]="id" [ngClass]="[classNames,'card']" (mouseenter)="onEnter()"
+(mouseleave)="onLeave()">
   <ng-content></ng-content>
 </div>

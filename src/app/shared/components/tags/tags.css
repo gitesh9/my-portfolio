@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   gap: 0.5rem;
   text-transform: capitalize;
+  margin-bottom: 1rem;
 }
 
 .tag{
@@ -34,4 +35,17 @@ a{
 a:hover{
   border-color:hsl(var(--primary));
   color: hsl(var(--primary));
+}
+.link-svg{
+  width: 0.7rem;
+  height: 0.7rem;
+  filter: brightness(0) invert(1);
+}
+
+:host-context([data-theme="light"]) .link-svg{
+  filter: brightness(0) invert(1);
+}
+:host-context([data-theme="light"]) .large{
+  border-color: black;
+  color: black;
 }

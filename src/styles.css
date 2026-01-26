@@ -168,6 +168,9 @@ div.project-card.visible:hover h2{
   -webkit-text-size-adjust: 100%;
 }
 
+div.project-cards.visible:hover div.project-image-div div.project-links-hover{
+  opacity: 1;
+}
 
 /* Keyframes */
 @keyframes slideUp {
@@ -201,7 +204,7 @@ div.project-card.visible:hover h2{
 
 @media (min-width: 720px) and (max-width: 1024px) {
     .md\:text-7xl {
-        font-size: 4.5rem;
+        font-size: 5rem;
         line-height: 1;
     }
 }

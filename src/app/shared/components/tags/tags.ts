@@ -8,8 +8,8 @@ import { Component, Input } from '@angular/core';
   styleUrl: './tags.css',
 })
 export class Tags {
-  @Input() allTags: string[] = []
+  @Input() allTags: string[] | {name:string;link:string}[] = []
   @Input() tagType: string = ""
   @Input() links: string[] = []
-  @Input() classNames: string = ""
+  @Input() classNames: string = "";
 }

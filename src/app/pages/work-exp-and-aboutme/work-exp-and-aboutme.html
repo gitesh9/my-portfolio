@@ -17,7 +17,7 @@
   <div class="timeline">
     <!-- Timeline line -->
     <div class="timeline-line"></div>
-    @for (item of items;let i = $index; track i) {
+    @for (company of data;let i = $index; track i) {
     <div
       class="timeline-item"
       [ngClass]="{
@@ -26,7 +26,7 @@
       }"
     >
   <div class="timeline-content">
-    <div class="card">
+    <app-card classNames="work-exp-card">
       <div class="card-header">
         <div class="icon">
           <!-- Briefcase SVG -->
@@ -36,16 +36,18 @@
           </svg>
         </div>
         <div class="card-title">
-          <h3>{{ item.title }}</h3>
-          <p class="company">{{ item.company }}</p>
+          <h3>{{ company.jobTitle }}</h3>
+          <p class="company">{{ company.company }}</p>
         </div>
       </div>
-      <span class="date">{{ item.date }}</span>
-      <p class="role-details details">{{ item.description }}</p>
+      <span class="date">{{ `${company.startDate}-${company.endDate}`}}</span>
+      <p class="role-details details">{{ company.description }}</p>
       <div class="skills">
-        <span *ngFor="let skill of item.skills">{{ skill }}</span>
+        @for (skill of company.skillsUsed; track $index) {
+          <span>{{ skill }}</span>
+        }
       </div>
-    </div>
+    </app-card>
   </div>
   <div class="timeline-dot">
     <div class="ping"></div>

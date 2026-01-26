@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -10,4 +10,13 @@ import { Component, Input } from '@angular/core';
 export class Card {
   @Input() classNames: string = "";
   @Input() id: string | number = "card1"
+  @Output() hoverChange = new EventEmitter<boolean>();
+
+  onEnter() {
+    this.hoverChange.emit(true);
+  }
+
+  onLeave() {
+    this.hoverChange.emit(false);
+  }
 }

@@ -14,23 +14,21 @@
       <span class="filter-text">Filter by <span class="text-gradient">category</span>:</span>
     </div>
     <div class="filter-buttons-div">
-      <button class="filter-button selected">All</button>
-      <button class="filter-button">E-Commerce</button>
-      <button class="filter-button">Communications</button>
-      <button class="filter-button">Video Streaming</button>
-      <button class="filter-button">Entertainment</button>
-      <button class="filter-button">Food Delivery</button>
-      <button class="filter-button">Hackathons</button>
-      <button class="filter-button">Educational</button>
+      @for (filter of FILTER_CATEGORIES; track $index) {
+        <button class="filter-button" [class.selected]="filter===selectedCategory()" (click)="handleSelect(filter)">{{filter}}</button>
+      }
     </div>
   </div>
   <div class="projects-container">
-    @for (project of visibleItems;let i = $index ;track $index) {
-    <app-card classNames="project-card" [id]="i">
+    @if (filteredProjects().length==0) {
+      Nothing to show right now
+    }
+    @for (project of filteredProjects();let i = $index ;track $index) {
+    <app-card classNames="project-card" [id]="i" (hoverChange)="hoveredIndex.set($event ? i : null)">
         <div class="project-image-div">
-          <img src="assets/discord_icon.png" alt="Project" class="project-image" />
-          <div class="project-links-hover">
-            <a routerLink="/" class="hover-link live-link">
+          <img [src]="project.imageUrl" alt="Project" class="project-image" />
+          <div class="project-links-hover" [class.hovered]="hoveredIndex() === i">
+            <a target="_blank" [href]="project.links.isLive? project.links.liveUrl:'/'" class="hover-link live-link">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="lucide lucide-external-link w-3 h-3 mr-1">
@@ -38,7 +36,7 @@
                 <path d="M10 14 21 3"></path>
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
               </svg></a>
-            <a routerLink="/" class="hover-link github-link">
+            <a target="_blank" [href]="project.links.gitUrl" class="hover-link github-link">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="lucide lucide-github w-3 h-3">
@@ -51,12 +49,12 @@
           </div>
         </div>
         <div class="project-details">
-          <h2 class="project-title">My Projects</h2>
-          <p class="project-description details">Here are some of the projects I've worked on:</p>
-          <app-tags [allTags]="['react','Java','typeScript']">
+          <h2 class="project-title">{{project.name}}</h2>
+          <p class="project-description details">{{project.description}}</p>
+          <app-tags [allTags]="project.tags">
           </app-tags>
           <div class="project-links-div">
-            <a routerLink="/" class="project-link project-link-live">
+            <a target="_blank" [href]="project.links.isLive? project.links.liveUrl:'/'" class="project-link project-link-live">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="lucide lucide-external-link w-3 h-3 mr-1">
@@ -66,7 +64,7 @@
               </svg> <span>
                 Live Demo
               </span></a>
-            <a routerLink="/" class="project-link project-link-github">
+            <a target="_blank" [href]="project.links.gitUrl" class="project-link project-link-github">
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                 class="lucide lucide-github w-3 h-3">

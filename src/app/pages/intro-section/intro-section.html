@@ -1,4 +1,4 @@
-<app-section-wrapper pageId="intro">
+<app-section-wrapper pageId="intro" classes="intro-page">
   <div class="page-background"></div>
   <div class="bg-circle top-circle"></div>
   <div class="bg-circle bottom-circle"></div>
@@ -11,7 +11,7 @@
     <div>
       <h1 class="intro-name md:text-7xl lg:text-8xl sm:text-5xl sm:mb-4">
         <span class="text-gradient">
-          Gitesh Wankhede
+          {{data.name}}
         </span>
       </h1>
     </div>
@@ -20,19 +20,20 @@
         {{displayedText()}}
       </span>
     </div>
-    <p class="intro-description">Hi, I'm Gitesh — a full-stack software engineer specializing in building scalable web
-      applications. I transform complex problems into elegant, user-friendly solutions.</p>
+    <p class="intro-description">{{data.shortDescription}}</p>
     <div class="intro-buttons mt-6">
       <a routerLink="/" fragment="work-exp" class="btn-intro primary">View My Work</a>
-      <a href="https://drive.google.com/uc?export=download&id=1REkBfGqAD9GpdBquTE7xLujFSaao7O-P" download="Gitesh_Wankhede.pdf" class="btn-intro secondary">Download Resume</a>
+      <a [href]="data.resumeLink" download="Gitesh_Wankhede.pdf" class="btn-intro secondary">Download Resume</a>
     </div>
-    <div class="status-message" style="opacity: 1;">
-      <span
+    @if (data.openForOpportunities) {
+      <div class="status-message" style="opacity: 1;">
+        <span
         class="status-message-block inline-flex items-center gap-2 px-4 py-2 bg-secondary/50 border border-border rounded-full text-xs sm:text-sm text-muted-foreground">
         <span class="pulse w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
         Open for opportunities
-      </span>
-    </div>
+        </span>
+      </div>
+    }
   </div>
   <a routerLink="/" fragment="projects" class="scroll-arrow">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"

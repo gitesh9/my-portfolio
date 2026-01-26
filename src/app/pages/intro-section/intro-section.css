@@ -51,6 +51,7 @@
   text-align: center;
   margin-left: auto;
   margin-right: auto;
+  margin-top: auto;
 }
 
 .intro-image {
@@ -199,7 +200,7 @@ button.btn-intro {
 }
 
 .status-message{
-  margin-top: 4rem;
+  margin-top: 2rem;
   animation: slideUp 0.8s ease-out 0s 1 normal forwards running;
   animation-delay: 0.5s;
 }
@@ -233,12 +234,11 @@ button.btn-intro {
 }
 
 .scroll-arrow {
-  margin-top: 6rem;
+  margin: auto;
   width: 2rem;
   height: 2rem;
   animation: bounce 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   color: hsl(30 10% 55%);
-  margin-bottom: 2rem;
 }
 
 @keyframes bounce {

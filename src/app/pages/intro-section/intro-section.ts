@@ -1,6 +1,8 @@
 import { Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { DataProvider } from '@app/data-provider';
 import { SectionWrapper } from '@app/shared/components/section-wrapper/section-wrapper';
+import { About } from 'assets/user_data';
 
 @Component({
   selector: 'app-intro-section',
@@ -19,14 +21,19 @@ export class IntroSection {
   deletingSpeed = 50;
   pauseAfterType = 1500;
   pauseAfterDelete = 300;
+  data: About
+
+  constructor(protected dataProvider: DataProvider){
+    this.data = dataProvider.getAbout()
+  }
 
   ngOnInit() {
     this.type();
   }
 
   type() {
-    if (this.charIndex < this.texts[this.textIndex].length) {
-      this.displayedText.update(prev => prev + this.texts[this.textIndex][this.charIndex++]);
+    if (this.charIndex < this.data.roleTitles[this.textIndex].length) {
+      this.displayedText.update(prev => prev + this.data.roleTitles[this.textIndex][this.charIndex++]);
       setTimeout(() => this.type(), this.typingSpeed);
     } else {
       setTimeout(() => this.erase(), this.pauseAfterType);
@@ -36,7 +43,7 @@ export class IntroSection {
   erase() {
     if (this.charIndex > 0) {
       this.displayedText.set('');
-      this.textIndex = (this.textIndex + 1) % this.texts.length;
+      this.textIndex = (this.textIndex + 1) % this.data.roleTitles.length;
       this.charIndex = 0;
       this.type()
     }

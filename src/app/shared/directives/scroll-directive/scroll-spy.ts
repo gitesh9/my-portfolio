@@ -29,7 +29,7 @@ export class ScrollSpy implements OnDestroy {
             });
           },
           {
-            threshold: 0.43
+            threshold: 0.3
           }
         );
 
