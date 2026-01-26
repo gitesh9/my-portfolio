@@ -1,0 +1,250 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --background: 0 0% 98%;
+  --text: #111827;
+  --surface: #f3f4f6;
+  --border: #e5e7eb;
+  --primary: #3b82f6;
+
+  --card: 20 12% 8%;
+  --card-foreground: 45 30% 94%;
+  --popover: 20 12% 8%;
+  --popover-foreground: 45 30% 94%;
+  --primary: 43 74% 49%;
+  --primary-foreground: 20 14% 4%;
+  --secondary: 20 10% 12%;
+  --secondary-foreground: 45 30% 94%;
+  --muted: 20 10% 15%;
+  --muted-foreground: 30 10% 55%;
+  --accent: 43 74% 49%;
+  --accent-foreground: 20 14% 4%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 45 30% 94%;
+  --border: 20 10% 18%;
+  --input: 20 10% 18%;
+  --ring: 43 74% 49%;
+  --radius: .5rem;
+  --gold: 43 74% 49%;
+  --gold-light: 43 80% 65%;
+  --cream: 45 30% 94%;
+  --charcoal: 20 14% 4%;
+  --charcoal-light: 20 12% 8%;
+  --gradient-gold: linear-gradient(135deg, hsl(43 74% 49%), hsl(35 80% 55%));
+  --gradient-dark: linear-gradient(180deg, hsl(20 14% 4%), hsl(20 12% 8%));
+  --shadow-glow: 0 0 60px -10px hsl(43 74% 49% / .3);
+  --shadow-card: 0 25px 50px -12px hsl(0 0% 0% / .5);
+  --sidebar-background: 20 12% 8%;
+  --sidebar-foreground: 45 30% 94%;
+  --sidebar-primary: 43 74% 49%;
+  --sidebar-primary-foreground: 20 14% 4%;
+  --sidebar-accent: 20 10% 15%;
+  --sidebar-accent-foreground: 45 30% 94%;
+  --sidebar-border: 20 10% 18%;
+  --sidebar-ring: 43 74% 49%;
+}
+
+a:hover {
+  cursor: pointer;;
+}
+
+[data-theme="dark"] {
+  --text: #e5e7eb;
+  --surface: #1e293b;
+  --border: #334155;
+
+  --background: 20 14% 4%;
+  --foreground: 45 30% 94%;
+  --card: 20 12% 8%;
+  --card-foreground: 45 30% 94%;
+  --popover: 20 12% 8%;
+  --popover-foreground: 45 30% 94%;
+  --primary: 43 100% 50%;
+  --primary-foreground: 20 14% 4%;
+  --secondary: 20 10% 12%;
+  --secondary-foreground: 45 30% 94%;
+  --muted: 20 10% 15%;
+  --muted-foreground: 30 10% 55%;
+  --accent: 43 74% 49%;
+  --accent-foreground: 20 14% 4%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 45 30% 94%;
+  --border: 20 10% 18%;
+  --input: 20 10% 18%;
+  --ring: 43 74% 49%;
+  --radius: .5rem;
+  --gold: 43 74% 49%;
+  --gold-light: 43 80% 65%;
+  --cream: 45 30% 94%;
+  --charcoal: 20 14% 4%;
+  --charcoal-light: 20 12% 8%;
+  --gradient-gold: linear-gradient(135deg, hsl(43 74% 49%), hsl(35 80% 55%));
+  --gradient-dark: linear-gradient(180deg, hsl(20 14% 4%), hsl(20 12% 8%));
+  --shadow-glow: 0 0 60px -10px hsl(43 74% 49% / .3);
+  --shadow-glow-2:0 0 20px 10px hsl(43 74% 49% / .3);
+  --shadow-card: 0 25px 50px -12px hsl(0 0% 0% / .5);
+  --sidebar-background: 20 12% 8%;
+  --sidebar-foreground: 45 30% 94%;
+  --sidebar-primary: 43 74% 49%;
+  --sidebar-primary-foreground: 20 14% 4%;
+  --sidebar-accent: 20 10% 15%;
+  --sidebar-accent-foreground: 45 30% 94%;
+  --sidebar-border: 20 10% 18%;
+  --sidebar-ring: 43 74% 49%;
+}
+
+body {
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: Inter, sans serif;
+  font-size: 14px;
+  line-height: 1;
+  tab-size: 4px;
+  margin: 0;
+  animation: none;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 0.375em;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
+}
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+
+a:visited{
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover, button:hover{
+  /* box-shadow: var(--shadow-glow-2); */
+  transform: scale(1.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+div.project-card.visible:hover{
+  box-shadow: var(--shadow-glow-2);
+  transform: scale(1.01);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+div.project-card.visible:hover h2{
+  background: var(--gradient-gold);
+  background-clip: text;
+  color: transparent;
+}
+
+.page-load-animate {
+  animation: slideUp 0.9s ease-out 0s 1 normal forwards running;
+  opacity: 1;
+}
+
+.text-gradient {
+  background-image: var(--gradient-gold);
+  color: transparent;
+  background-clip: text;
+}
+
+.details{
+  position: relative;
+  line-height: 1.625;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  font-family: Inter, sans-serif;
+  color: hsl(var(--muted-foreground));
+  font-size: 1.1rem;
+  -webkit-text-size-adjust: 100%;
+}
+
+div.project-cards.visible:hover div.project-image-div div.project-links-hover{
+  opacity: 1;
+}
+
+/* Keyframes */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+
+@media (min-width: 1024px) {
+    .lg\:text-8xl {
+        font-size: 6rem;
+        line-height: 1;
+    }
+    .lg\:text-6xl {
+        font-size: 3.75rem;
+        line-height: 1;
+    }
+}
+
+@media (min-width: 720px) and (max-width: 1024px) {
+    .md\:text-7xl {
+        font-size: 5rem;
+        line-height: 1;
+    }
+}
+
+@media (min-width: 640px) and (max-width: 720px) {
+    .sm\:text-5xl {
+        font-size: 3rem;
+        line-height: 1;
+    }
+}
+
+@media (min-width: 640px) {
+    .sm\:mb-4 {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .md\:text-xl {
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sm\:text-lg {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+    }
+}
+
+@media (min-width: 640px) {
+    .sm\:mb-8 {
+        margin-bottom: 2rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

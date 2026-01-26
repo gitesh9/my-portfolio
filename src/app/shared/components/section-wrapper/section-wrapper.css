@@ -1,0 +1,131 @@
+.section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.intro-page{
+  height: 100vh;
+}
+
+.projects-section {
+  position: relative;
+  padding: 4em;
+  font-size: 0.75em;
+  max-width: 100%;
+}
+
+.projects-section::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(70deg, black 30%, goldenrod 100%);
+  opacity: 0.1;
+  right: 0;
+}
+
+.testimonial-section::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: linear-gradient(90deg, black 60%, goldenrod 100%);
+  opacity: 0.2;
+  right: 0;
+}
+
+:host-context([data-theme="light"]) .projects-section {
+  background-color: hsl(20 8% 95%);
+}
+
+:host-context([data-theme="light"]) .skills-section {
+  background-color: hsl(20 8% 95%);
+}
+
+.skills-section {
+  position: relative;
+  /* background: #000; */
+  /* overflow: hidden; */
+  /* Creates a radial gradient that's transparent at the bottom-left edge */
+  /* Or use ellipse for more control: mask: radial-gradient(50% 70px at 0% 100%, transparent 0%, black 50%); */
+  background: black;
+}
+
+.work-exp-section{
+  position: relative;
+  padding-top: 10rem;
+  /* max-width: 72rem; */
+}
+
+:host-context([data-theme="light"]) .skill-column{
+  background-color: inherit;
+}
+
+.skills-section{
+  min-height: 420px;
+  position: relative;
+  padding-bottom: 10rem;
+}
+
+.skills-section::before{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height:100%;
+  /* background: radial-gradient(circle at 12% 0%, transparent 50%, #fff493 100%); */
+  /* background: radial-gradient(circle at 3% -100%, transparent 71%, goldenrod 100%); */
+  background: radial-gradient(circle at 0% -100%, transparent 62%, goldenrod 100%);
+  opacity: 0.3;
+}
+
+.work-exp-section::before{
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height:100%;
+  /* background: radial-gradient(circle at 12% 0%, transparent 50%, #fff493 100%); */
+  /* background: radial-gradient(circle at 3% -100%, transparent 71%, goldenrod 100%); */
+  /* background: linear-gradient(
+    to top,
+    transparent 0%,
+    goldenrod 100%
+  ); */
+  /* background: radial-gradient(circle at 0% 100%, transparent 60%, goldenrod 100%); */
+  background: radial-gradient(circle at 0% 100%, transparent 51%, goldenrod 100%);
+  opacity: 0.3;
+}
+
+/* Optional: faint grid like a tech UI (toggle on if you want) */
+.skills-section.grid::after{
+  /* keep the existing ::after by moving this into another overlay div if you need both */
+}
+
+
+.testimonial-section{
+  padding-bottom: 4rem;
+}
+
+.contact-section{
+}
+
+@media (max-width:1550px) {
+  .skills-section::before{
+    background: radial-gradient(circle at 0% 0%, transparent 30%, goldenrod 100%);
+  }
+}
+
+@media (max-width:600px) {
+  .section{
+    padding-top: 2rem;
+  }
+
+}
+
+:host-context([data-theme="light"]) .contact-section{
+  background-color: whitesmoke;
+}

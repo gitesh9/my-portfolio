@@ -1,0 +1,59 @@
+<app-section-wrapper pageId="work-exp" [classes]="'work-exp-section'">
+  <app-heading tagName="h2" classNames="sub-heading">
+    <ng-template>
+      <span class="text-gradient">
+        Companies and clients
+      </span>
+    </ng-template>
+  </app-heading>
+  <app-heading tagName="h1" classNames="page-heading with-sub-heading-top">
+    <ng-template>
+      Work
+      <span class="text-gradient">
+        Experience
+      </span>
+    </ng-template>
+  </app-heading>
+  <div class="timeline">
+    <!-- Timeline line -->
+    <div class="timeline-line"></div>
+    @for (company of data;let i = $index; track i) {
+    <div
+      class="timeline-item"
+      [ngClass]="{
+        left: i % 2 === 0,
+        right: i % 2 !== 0
+      }"
+    >
+  <div class="timeline-content">
+    <app-card classNames="work-exp-card">
+      <div class="card-header">
+        <div class="icon">
+          <!-- Briefcase SVG -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            <rect width="20" height="14" x="2" y="6" rx="2"></rect>
+          </svg>
+        </div>
+        <div class="card-title">
+          <h3>{{ company.jobTitle }}</h3>
+          <p class="company">{{ company.company }}</p>
+        </div>
+      </div>
+      <span class="date">{{ `${company.startDate}-${company.endDate}`}}</span>
+      <p class="role-details details">{{ company.description }}</p>
+      <div class="skills">
+        @for (skill of company.skillsUsed; track $index) {
+          <span>{{ skill }}</span>
+        }
+      </div>
+    </app-card>
+  </div>
+  <div class="timeline-dot">
+    <div class="ping"></div>
+  </div>
+  <div class="timeline-content hidden"></div>
+  </div>
+  }
+  </div>
+</app-section-wrapper>
