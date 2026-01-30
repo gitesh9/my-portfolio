@@ -169,21 +169,9 @@ export const portfolioData: Portfolio = {
       },
     },
     {
-      name: "Coding Interview Platform",
-      description: "A platform to learn, practice and have real simulation of interviews with the help of AI",
-      imageUrl: "",
-      tags: ['Python', 'Angular', 'API-Gateway', 'full-stack development', 'Microservices', 'Postgres'],
-      category: ["All","Educational"],
-      links: {
-        isLive: false,
-        liveUrl: "",
-        gitUrl: ""
-      }
-    },
-    {
       name: "Game Stream",
       description: "A platform to stream and chat with role level accesses and moderation",
-      imageUrl: "assets/game-stream.png",
+      imageUrl: "assets/GameStream.jpg",
       tags: ['NextJS', 'SQL', 'RTMP', 'WebSockets'],
       category: ["All","Entertainment", "Video Streaming"],
       links: {
@@ -243,7 +231,7 @@ export const portfolioData: Portfolio = {
     {
       name: "Bootstrap",
       description: "A contribution to freetube platform where I build a featre and reduce the latenc of the app",
-      imageUrl: "assets/FreeTube.png",
+      imageUrl: "assets/Bootstrap.png",
       tags: ['React'],
       category: ["All","Open-Source Contributions"],
       links: {
@@ -262,6 +250,18 @@ export const portfolioData: Portfolio = {
         isLive: false,
         liveUrl: "",
         gitUrl: "https://github.com/gitesh9/bootstrap-main"
+      }
+    },
+    {
+      name: "Coding Interview Platform",
+      description: "A platform to learn, practice and have real simulation of interviews with the help of AI",
+      imageUrl: "",
+      tags: ['Python', 'Angular', 'API-Gateway', 'full-stack development', 'Microservices', 'Postgres'],
+      category: ["All","Educational"],
+      links: {
+        isLive: false,
+        liveUrl: "",
+        gitUrl: ""
       }
     },
   ],
