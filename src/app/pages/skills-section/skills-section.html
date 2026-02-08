@@ -9,7 +9,6 @@
   </div>
   <div class="skills-grid">
     @for (skillCategory of data | keyvalue; track $index) {
-
       <div class="skill-column">
         <h3>{{skillCategory.key}}</h3>
         @for (skillDetails of skillCategory.value; track $index) {
