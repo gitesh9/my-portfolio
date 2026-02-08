@@ -1,0 +1,45 @@
+/* Card header */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  background: hsl(var(--primary)/0.1);
+  color: hsl(var(--primary));
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title h3 {
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.company {
+  font-weight: 500;
+  color: hsl(var(--primary));
+}
+
+/* Date */
+.date {
+  display: inline-block;
+  background-color: hsl(var(--secondary)); /* secondary */
+  color: hsl(var(--muted-foreground));
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.5rem;
+  font-size: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width:1550px) {
+  .role-details.details{
+    font-size: 0.97rem;
+  }
+}

@@ -1,0 +1,17 @@
+<div
+      class="timeline-item"
+      [ngClass]="{
+        left: index % 2 === 0,
+        right: index % 2 !== 0
+      }"
+    >
+  <div class="timeline-content">
+    <app-card classNames="work-exp-card">
+      <app-experience-card [company]="companyDetails" />
+    </app-card>
+  </div>
+  <div class="timeline-dot">
+    <div class="ping"></div>
+  </div>
+  <div class="timeline-content hidden"></div>
+  </div>
