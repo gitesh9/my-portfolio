@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { SectionWrapper } from '@app/shared/components/section-wrapper/section-wrapper';
 import { Heading } from "@app/shared/components/heading/heading";
-import { Skill, SkillsByCategory } from 'assets/user_data';
+import { SkillsByCategory } from 'assets/user_data';
 import { DataProvider } from '@app/data-provider';
 import { CommonModule, NgStyle } from '@angular/common';
+import { Skill } from "./components/skill/skill";
 @Component({
   selector: 'app-skills-section',
-  imports: [SectionWrapper, Heading, NgStyle, CommonModule],
+  imports: [SectionWrapper, Heading, CommonModule, Skill],
   templateUrl: './skills-section.html',
   styleUrl: './skills-section.css',
 })

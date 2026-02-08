@@ -1,0 +1,26 @@
+.skill-rating-div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.skill-logo-div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.logo-svg{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.logo-svg.background{
+  filter: brightness(0) invert(1)
+}
+
+:host-context([data-theme="light"]) .logo-svg.background{
+  filter: none;
+}

@@ -84,7 +84,7 @@ export interface Project {
 }
 
 // Interface for Skills data
-export interface Skill {
+export interface SkillDetails {
   name: SkillType;
   logoUrl: string;
   rating: number; // Rating as a number for comparison and sorting
@@ -92,7 +92,7 @@ export interface Skill {
 }
 
 export type SkillsByCategory = {
-  [key in SkillCategory]: Skill[];  // Dynamically using category names as keys
+  [key in SkillCategory]: SkillDetails[];  // Dynamically using category names as keys
 }
 
 // Interface for Work Experience data

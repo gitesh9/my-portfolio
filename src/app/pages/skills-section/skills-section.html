@@ -12,52 +12,10 @@
 
       <div class="skill-column">
         <h3>{{skillCategory.key}}</h3>
-        @for (skill of skillCategory.value; track $index) {
-          <div class="skill">
-            <div class="skill-rating-div">
-              <div class="skill-logo-div">
-                <span>{{skill.name}}</span>
-                <div class="logo-svg" [ngClass]="skill.background?'background':''">
-                  <img class="logo-svg" [src]="skill.logoUrl" [ngClass]="skill.background?'background':''" />
-                  <!-- <div class="logo-svg" [ngClass]="skill.background?'background':''"></div> -->
-                </div>
-              </div>
-              <span class="rating-number">{{`${skill.rating}%`}}</span>
-            </div>
-            <div class="progress">
-              <div class="progress-bar">
-                <div class="progress-fill" [ngStyle]="{'width': `${skill.rating}%`}"></div>
-              </div>
-            </div>
-          </div>
+        @for (skillDetails of skillCategory.value; track $index) {
+          <app-skill [skill]="skillDetails"></app-skill>
         }
       </div>
       }
     </div>
-  <!-- <table>
-    <tr>
-      <th>FrontEnd</th>
-      <th>Backend</th>
-      <th>DevOps</th>
-      <th>Databases</th>
-      <th>Languages</th>
-      <th>Tools</th>
-      <th>Cloud Technologies</th>
-    </tr>
-    <tr>
-      <td>Angular, React, Vue.js</td>
-      <td>Node.js, Express.js, Django</td>
-      <td>Docker, Kubernetes, Jenkins</td>
-      <td>MySQL, MongoDB, PostgreSQL</td>
-      <td>JavaScript, TypeScript, Python</td>
-      <td>Git, Webpack, Babel</td>
-      <td>AWS, Azure, Google Cloud</td>
-  </table>
-  <ul class="skills-list">
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-    <li>Angular</li>
-    <li>TypeScript</li>
-  </ul> -->
 </app-section-wrapper>

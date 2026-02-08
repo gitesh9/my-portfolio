@@ -1,0 +1,12 @@
+<div class="skill">
+  <div class="skill-rating-div">
+    <div class="skill-logo-div">
+      <span>{{skill.name}}</span>
+      <div class="logo-svg" [ngClass]="skill.background?'background':''">
+        <img class="logo-svg" [src]="skill.logoUrl" [ngClass]="skill.background?'background':''" />
+      </div>
+    </div>
+    <span class="rating-number">{{`${skill.rating}%`}}</span>
+  </div>
+  <app-progress-bar [rating]="skill.rating" />
+</div>
