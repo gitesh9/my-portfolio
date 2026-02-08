@@ -1,34 +1,25 @@
 import { Component, ElementRef, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { SectionWrapper } from '@app/shared/components/section-wrapper/section-wrapper';
-import { Heading } from "@app/shared/components/heading/heading";
-import { Tags } from "@app/shared/components/tags/tags";
 import { About } from 'assets/user_data';
 import { DataProvider } from '@app/data-provider';
-import { FormBuilder, FormGroup, FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
+import { ContactForm } from "./components/contact-form/contact-form";
+import { ContactLinks } from "./components/contact-links/contact-links";
+import { ContactHeaderSection } from "./components/contact-header/contact-header";
 
 @Component({
   selector: 'app-contact-me',
-  imports: [SectionWrapper, Heading, Tags, FormsModule, ReactiveFormsModule],
+  imports: [SectionWrapper, ContactForm, ContactLinks, ContactHeaderSection],
   templateUrl: './contact-me.html',
   styleUrl: './contact-me.css',
 })
 export class ContactMe {
   data: About;
-  form: FormGroup;
-  formSubmitted = signal(false);
-  inProgress = signal(false);
   connectingTags: { name: string; link: string }[] = [];
   observerHeading!: IntersectionObserver;
   observerContact!: IntersectionObserver;
 
-  constructor(private el: ElementRef, dataProvider: DataProvider, private fb: FormBuilder) {
+  constructor(private el: ElementRef, dataProvider: DataProvider) {
     this.data = dataProvider.getAbout();
-    this.form = this.fb.group({
-      name: [''],
-      email: [''],
-      message: [''],
-    });
     this.connectingTags = [{ name: "Github", link: this.data.githubLink }, { name: "LeetCode", link: this.data.leetCode }, { name: "LinkedIn", link: this.data.linkedInLink }, { name: "DevPost", link: this.data.DevPost }]
   }
 
@@ -72,31 +63,6 @@ export class ContactMe {
     this.observerContact.observe(contact)
   }
 
-  handleSubmit() {
-    if (this.form.invalid) {
-      this.form.markAllAsTouched();
-      return;
-    }
-    this.inProgress.set(true)
-    fetch('https://formsubmit.co/ajax/giteshwan98@gmail.com', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(this.form.value)
-    })
-      .then(() => {
-        this.form.reset();
-        this.formSubmitted.set(true);
-        setTimeout(() => {
-          this.formSubmitted.set(false);
-        }, 4000);
-      })
-      .catch(() => {
-        alert('Something went wrong.');
-      });
-    this.inProgress.set(false)
-  }
   onDestroy() {
     this.observerContact.disconnect()
     this.observerHeading.disconnect()

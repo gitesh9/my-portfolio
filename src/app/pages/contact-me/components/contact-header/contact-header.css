@@ -1,0 +1,15 @@
+.icon-circle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 9999px;
+  background-color: hsl(var(--primary)/0.1);
+}
+
+.email-card{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
