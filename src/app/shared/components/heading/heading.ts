@@ -12,6 +12,7 @@ export class Heading {
   @Input() classNames: string = "";
   @Input() animate: boolean = true;
   @ContentChild(TemplateRef) contentTpl!: TemplateRef<unknown>;
+  headerObserver!: IntersectionObserver;
 
   constructor(private el: ElementRef) { }
 
@@ -20,7 +21,7 @@ export class Heading {
       return
     }
     const heading: HTMLElement = this.el.nativeElement.querySelector('.heading');
-    const headerObserver = new IntersectionObserver(
+    this.headerObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           heading.classList.add('page-load-animate');
@@ -32,6 +33,10 @@ export class Heading {
       { threshold: 0.3 }
     );
 
-    headerObserver.observe(heading);
+    this.headerObserver.observe(heading);
+  }
+
+  onDestroy() {
+    this.headerObserver.disconnect()
   }
 }

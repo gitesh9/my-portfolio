@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, computed, effect, ElementRef, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, computed, effect, ElementRef, signal } from '@angular/core';
 import { Heading } from '@app/shared/components/heading/heading';
 import { SectionWrapper } from '@app/shared/components/section-wrapper/section-wrapper';
 import { Tags } from "@app/shared/components/tags/tags";
@@ -17,11 +16,14 @@ import { FILTER_CATEGORIES, FilterCategory, Project } from 'assets/user_data';
 export class ProjectSection {
   visibleItems: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   selectedCategory = signal<FilterCategory | null>('All');
-  data = signal<Project[]|null>(null)
-  FILTER_CATEGORIES:readonly FilterCategory[];
+  data = signal<Project[] | null>(null)
+  FILTER_CATEGORIES: readonly FilterCategory[];
   hoveredIndex = signal<number | null>(null);
+  cardObserver!: IntersectionObserver;
+  headerObserver!: IntersectionObserver;
+  firstViewed: boolean = false;
 
-  constructor(private el: ElementRef, private dataProvider: DataProvider) {
+  constructor(private el: ElementRef, dataProvider: DataProvider) {
     this.data.set(dataProvider.getProjects())
     this.FILTER_CATEGORIES = FILTER_CATEGORIES
     effect(() => {
@@ -38,12 +40,13 @@ export class ProjectSection {
     const heading = this.el.nativeElement.querySelector('.page-heading');
     const filter = this.el.nativeElement.querySelector('.filter');
     let index = 0
-    const observer = new IntersectionObserver(
+    this.cardObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const card = entry.target as HTMLElement;
             index = card?.id as unknown as number
+            this.firstViewed = true;
             setTimeout(() => {
               card.classList.add('visible');
             }, index * 150); // 200ms stagger
@@ -65,37 +68,38 @@ export class ProjectSection {
       { threshold: 0.3 }
     );
 
-    const headerObserver = new IntersectionObserver(
+    this.headerObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           heading.classList.add('animate');
           filter.classList.add('animate');
-          headerObserver.disconnect();
+          this.headerObserver.disconnect();
         }
       },
       { threshold: 0.3 }
     );
 
-    headerObserver.observe(heading);
+    this.headerObserver.observe(heading);
 
     cards.forEach((card: HTMLElement) => {
-      observer.observe(card);
+      this.cardObserver.observe(card);
     });
   }
 
-  showCards(){
+  showCards() {
+    if (!this.firstViewed) return
     const cards = this.el.nativeElement.querySelectorAll('.project-card');
-    console.log("triggered: ",cards)
+    console.log("triggered: ", cards)
     let index = 0
     cards.forEach((card: HTMLElement) => {
       setTimeout(() => {
         card.classList.add('visible');
       }, index * 200);
-      index+=1
+      index += 1
     });
   }
 
-  handleSelect(filter:FilterCategory){
+  handleSelect(filter: FilterCategory) {
     this.selectedCategory.update(current =>
       current === filter ? "All" : filter
     );
@@ -110,9 +114,14 @@ export class ProjectSection {
     if (selected === "All") {
       return projects;
     }
-    if(!selected) return projects
+    if (!selected) return projects
     return projects.filter(project =>
       project.category.includes(selected)
     );
   });
+
+  onDestroy() {
+    this.cardObserver.disconnect()
+    this.headerObserver.disconnect()
+  }
 }

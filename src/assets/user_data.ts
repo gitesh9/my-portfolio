@@ -59,8 +59,8 @@ export interface About {
   name: string;
   githubLink: string;
   linkedInLink: string;
-  DevPost:string;
-  leetCode:string;
+  DevPost: string;
+  leetCode: string;
   email: string;
   phone: string;
   roleTitles: string[];  // Multiple role titles in an array
@@ -152,7 +152,8 @@ export const portfolioData: Portfolio = {
     phone: '+91 7219583781',
     roleTitles: ['Full-stack developer • Creating Digital Experiences', 'Senior Software Engineer'],
     shortDescription: "Hi, I'm Gitesh — a full-stack software engineer specializing in building scalable web applications. I transform complex problems into elegant, user-friendly solutions.",
-    resumeLink: 'https://drive.google.com/uc?export=download&id=1REkBfGqAD9GpdBquTE7xLujFSaao7O-P',
+    // resumeLink: 'https://drive.google.com/uc?export=download&id=1REkBfGqAD9GpdBquTE7xLujFSaao7O-P',
+    resumeLink: 'assets/Gitesh_Wankhede_Resume.pdf',
     openForOpportunities: true,
   },
   projects: [
@@ -161,7 +162,7 @@ export const portfolioData: Portfolio = {
       description: 'Developed a high-performance backend in FastAPI using Python for automating marketing campaigns for SMEs. Integrated OpenAI API for content generation (blogs, posts, stories) and Agentic AI for campaign optimization. The system integrates with social media APIs for publishing, and is hosted on Firebase. The frontend was developed using Angular and styled with Tailwind CSS.',
       imageUrl: 'assets/SME_Boost.png',
       tags: ['Angular', 'Python', 'Firebase', 'pipelines'],
-      category: ["All","Consumers", "Hackathons"], // Use a valid category from the Category type
+      category: ["All", "Consumers", "Hackathons"], // Use a valid category from the Category type
       links: {
         isLive: true,
         liveUrl: 'https://sme-boost-463309.web.app/services',
@@ -169,11 +170,23 @@ export const portfolioData: Portfolio = {
       },
     },
     {
+      name: "Coding Interview Platform",
+      description: "A platform to learn, practice and have real simulation of interviews with the help of AI",
+      imageUrl: "",
+      tags: ['Python', 'Angular', 'API-Gateway', 'full-stack development', 'Microservices', 'Postgres'],
+      category: ["All", "Educational"],
+      links: {
+        isLive: false,
+        liveUrl: "",
+        gitUrl: ""
+      }
+    },
+    {
       name: "Game Stream",
       description: "A platform to stream and chat with role level accesses and moderation",
       imageUrl: "assets/GameStream.jpg",
       tags: ['NextJS', 'SQL', 'RTMP', 'WebSockets'],
-      category: ["All","Entertainment", "Video Streaming"],
+      category: ["All", "Entertainment", "Video Streaming"],
       links: {
         isLive: false,
         liveUrl: "",
@@ -185,7 +198,7 @@ export const portfolioData: Portfolio = {
       description: "A platform to stream and chat with role level accesses and moderation along with making friends and servers...",
       imageUrl: "assets/discord.jpg",
       tags: ['NextJS', 'SQL', 'Websockets'],
-      category: ["All","Communication"],
+      category: ["All", "Communication"],
       links: {
         isLive: false,
         liveUrl: "",
@@ -197,7 +210,7 @@ export const portfolioData: Portfolio = {
       description: "A platform with location based allocation of services and management through a single interface",
       imageUrl: "assets/inventory-management.jpg",
       tags: ['Angular', 'Postgres', 'Python'],
-      category: ["All","Food Delivery"],
+      category: ["All", "Food Delivery"],
       links: {
         isLive: false,
         liveUrl: "",
@@ -209,7 +222,7 @@ export const portfolioData: Portfolio = {
       description: "A contribution to freetube platform where I build a featre and reduce the latenc of the app",
       imageUrl: "assets/FreeTube.png",
       tags: ['React'],
-      category: ["All","Open-Source Contributions"],
+      category: ["All", "Open-Source Contributions"],
       links: {
         isLive: false,
         liveUrl: "",
@@ -221,7 +234,7 @@ export const portfolioData: Portfolio = {
       description: "A RAG-powered incident agent:Reads through incident logs, runbooks, system alerts Suggests troubleshooting steps, potential resolutions, relevant playbooks Integrates with ticketing systems like AWS S3, AWS CloudWatch, PagerDuty. Why Useful: Cuts downtime, makes even junior engineers more effective, improves response time.",
       imageUrl: "assets/N8N.png",
       tags: ['N8N', 'automation'],
-      category: ["All","Hackathons"],
+      category: ["All", "Hackathons"],
       links: {
         isLive: false,
         liveUrl: "",
@@ -233,7 +246,7 @@ export const portfolioData: Portfolio = {
       description: "A contribution to freetube platform where I build a featre and reduce the latenc of the app",
       imageUrl: "assets/Bootstrap.png",
       tags: ['React'],
-      category: ["All","Open-Source Contributions"],
+      category: ["All", "Open-Source Contributions"],
       links: {
         isLive: false,
         liveUrl: "",
@@ -245,7 +258,7 @@ export const portfolioData: Portfolio = {
       description: "Working",
       imageUrl: "",
       tags: ['React'],
-      category: ["All","Consumers"],
+      category: ["All", "Consumers"],
       links: {
         isLive: false,
         liveUrl: "",
@@ -257,7 +270,7 @@ export const portfolioData: Portfolio = {
       description: "A platform to learn, practice and have real simulation of interviews with the help of AI",
       imageUrl: "",
       tags: ['Python', 'Angular', 'API-Gateway', 'full-stack development', 'Microservices', 'Postgres'],
-      category: ["All","Educational"],
+      category: ["All", "Educational"],
       links: {
         isLive: false,
         liveUrl: "",
@@ -418,7 +431,7 @@ export const portfolioData: Portfolio = {
       jobTitle: 'Software Engineer',
       company: 'UBS',
       description: 'Delivered high-quality, reusable components for library as part of UBS wealth management, improving scalability, performance and consistency across applications through ongoing optimizationa and team collaboration.',
-      skillsUsed: ['React','CI/CD'],
+      skillsUsed: ['React', 'CI/CD'],
       startDate: 'Sept 2025',
       endDate: 'Current',
     },
@@ -426,7 +439,7 @@ export const portfolioData: Portfolio = {
       jobTitle: 'Software Engineer',
       company: 'Mastercard',
       description: 'Worked on enterprise-scale internal services, focusing on accessibility compliance, security hardening, performance optimization and system stability for more than 50,000+ DAU.',
-      skillsUsed: ['Angular','Java','CI/CD','Jenkins'],
+      skillsUsed: ['Angular', 'Java', 'CI/CD', 'Jenkins'],
       startDate: 'Nov 2024',
       endDate: 'Sept 2025',
     },
@@ -434,7 +447,7 @@ export const portfolioData: Portfolio = {
       jobTitle: 'Junior Software Engineer',
       company: 'Generix',
       description: 'Worked on WMS, focusing on workflow reliability, defect resolution and effective collaboration across engineering product teams.',
-      skillsUsed: ['Angular','TypeScript'],
+      skillsUsed: ['Angular', 'TypeScript'],
       startDate: 'Dec 2023',
       endDate: 'Aug 2024',
     },
@@ -442,7 +455,7 @@ export const portfolioData: Portfolio = {
       jobTitle: 'Junior Software Engineer',
       company: 'EPAM Systems',
       description: 'Worked as an Engineer contributing to multiple enterprises and internal projects, Gaining strong experiencea and delivering high quality solutions in Agile and cross functional teams',
-      skillsUsed: ['Angular','React','NodeJS','Express','JavaScript','TypeScript'],
+      skillsUsed: ['Angular', 'React', 'NodeJS', 'Express', 'JavaScript', 'TypeScript'],
       startDate: 'July 2022',
       endDate: 'current',
     },

@@ -9,31 +9,33 @@ import { FormBuilder, FormGroup, FormsModule, NgForm, ReactiveFormsModule } from
 
 @Component({
   selector: 'app-contact-me',
-  imports: [SectionWrapper, Heading, Tags, FormsModule,ReactiveFormsModule],
+  imports: [SectionWrapper, Heading, Tags, FormsModule, ReactiveFormsModule],
   templateUrl: './contact-me.html',
   styleUrl: './contact-me.css',
 })
 export class ContactMe {
-  data:About;
-  form:FormGroup;
+  data: About;
+  form: FormGroup;
   formSubmitted = signal(false);
   inProgress = signal(false);
   connectingTags: { name: string; link: string }[] = [];
+  observerHeading!: IntersectionObserver;
+  observerContact!: IntersectionObserver;
 
-  constructor(private el:ElementRef ,dataProvider:DataProvider,private fb:FormBuilder){
+  constructor(private el: ElementRef, dataProvider: DataProvider, private fb: FormBuilder) {
     this.data = dataProvider.getAbout();
     this.form = this.fb.group({
       name: [''],
       email: [''],
       message: [''],
     });
-    this.connectingTags = [{name: "Github",link: this.data.githubLink},{name:"LeetCode",link: this.data.leetCode},{name:"LinkedIn",link:this.data.linkedInLink},{name:"DevPost",link: this.data.DevPost}]
+    this.connectingTags = [{ name: "Github", link: this.data.githubLink }, { name: "LeetCode", link: this.data.leetCode }, { name: "LinkedIn", link: this.data.linkedInLink }, { name: "DevPost", link: this.data.DevPost }]
   }
 
   ngAfterViewInit(): void {
     const heading = this.el.nativeElement.querySelector('.header');
     const contact = this.el.nativeElement.querySelector('.contact-form');
-    const observerHeading = new IntersectionObserver(
+    this.observerHeading = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -41,12 +43,15 @@ export class ContactMe {
             setTimeout(() => {
               card.classList.add('animate-side-right');
             }, 150);
+          } else {
+            const card = entry.target as HTMLElement;
+            card.classList.remove('animate-side-right');
           }
         });
       },
       { threshold: 0.3 }
     );
-    const observerContact = new IntersectionObserver(
+    this.observerContact = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -54,39 +59,46 @@ export class ContactMe {
             setTimeout(() => {
               card.classList.add('animate-side-left');
             }, 150);
+          } else {
+            const card = entry.target as HTMLElement;
+            card.classList.remove('animate-side-left');
           }
         });
       },
       { threshold: 0.3 }
     );
 
-    observerHeading.observe(heading)
-    observerContact.observe(contact)
+    this.observerHeading.observe(heading)
+    this.observerContact.observe(contact)
   }
 
-  handleSubmit(){
-      if (this.form.invalid) {
-        this.form.markAllAsTouched();
-        return;
-      }
-      this.inProgress.set(true)
-      fetch('https://formsubmit.co/ajax/giteshwan98@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(this.form.value)
-      })
+  handleSubmit() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+    this.inProgress.set(true)
+    fetch('https://formsubmit.co/ajax/giteshwan98@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(this.form.value)
+    })
       .then(() => {
         this.form.reset();
         this.formSubmitted.set(true);
-        setTimeout(()=>{
+        setTimeout(() => {
           this.formSubmitted.set(false);
-        },4000);
+        }, 4000);
       })
       .catch(() => {
         alert('Something went wrong.');
       });
-      this.inProgress.set(false)
+    this.inProgress.set(false)
+  }
+  onDestroy() {
+    this.observerContact.disconnect()
+    this.observerHeading.disconnect()
   }
 }
