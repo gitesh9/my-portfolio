@@ -4,7 +4,7 @@ import { About } from 'assets/user_data';
 import { DataProvider } from '@app/data-provider';
 import { ContactForm } from "./components/contact-form/contact-form";
 import { ContactLinks } from "./components/contact-links/contact-links";
-import { ContactHeaderSection } from "./components/contact-header/contact-header";
+import { ContactHeaderSection } from "./components/contact-header-section/contact-header";
 
 @Component({
   selector: 'app-contact-me',
