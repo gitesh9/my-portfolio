@@ -2,36 +2,34 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, effect, ElementRef, signal } from '@angular/core';
 import { Heading } from '@app/shared/components/heading/heading';
 import { SectionWrapper } from '@app/shared/components/section-wrapper/section-wrapper';
-import { Tags } from "@app/shared/components/tags/tags";
-import { Card } from "@app/shared/components/card/card";
 import { DataProvider } from '@app/data-provider';
 import { FILTER_CATEGORIES, FilterCategory, Project } from 'assets/user_data';
+import { ProjectCard } from "./components/project-card/project-card";
+import { ProjectFilter } from "./components/project-filter/project-filter";
 
 @Component({
   selector: 'app-project-section',
-  imports: [CommonModule, SectionWrapper, Heading, Tags, Card],
+  imports: [CommonModule, SectionWrapper, Heading, ProjectCard, ProjectFilter],
   templateUrl: './project-section.html',
   styleUrl: './project-section.css',
 })
 export class ProjectSection {
   visibleItems: any[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  selectedCategory = signal<FilterCategory | null>('All');
   data = signal<Project[] | null>(null)
-  FILTER_CATEGORIES: readonly FilterCategory[];
-  hoveredIndex = signal<number | null>(null);
+  selectedFilterCategory = signal<FilterCategory>('All')
   cardObserver!: IntersectionObserver;
   headerObserver!: IntersectionObserver;
   firstViewed: boolean = false;
 
   constructor(private el: ElementRef, dataProvider: DataProvider) {
     this.data.set(dataProvider.getProjects())
-    this.FILTER_CATEGORIES = FILTER_CATEGORIES
     effect(() => {
       this.filteredProjects();
+      this.hideCards();
       queueMicrotask(() => {
         this.showCards();
       });
-    });
+    })
   }
 
   ngAfterViewInit() {
@@ -46,18 +44,10 @@ export class ProjectSection {
           if (entry.isIntersecting) {
             const card = entry.target as HTMLElement;
             index = card?.id as unknown as number
-            this.firstViewed = true;
+            this.firstViewed = true
             setTimeout(() => {
               card.classList.add('visible');
-            }, index * 150); // 200ms stagger
-            // card.classList.add('visible');
-            // add visible class with staggered delay
-            // cards.forEach((card: any, index: number) => {
-            //   setTimeout(() => {
-            //     card.classList.add('visible');
-            //   }, index * 200); // 200ms stagger
-            // });
-            // observer.disconnect(); // trigger once
+            }, index * 150);
           } else {
             // Remove visible class when not in view
             const card = entry.target as HTMLElement;
@@ -65,8 +55,10 @@ export class ProjectSection {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
+
+    console.log(cards,filter,heading)
 
     this.headerObserver = new IntersectionObserver(
       ([entry]) => {
@@ -86,6 +78,17 @@ export class ProjectSection {
     });
   }
 
+  hideCards() {
+    if (!this.firstViewed) return
+    const cards = this.el.nativeElement.querySelectorAll('.project-card');
+    console.log("triggered: ", cards)
+    let index = 0
+    cards.forEach((card: HTMLElement) => {
+      card.classList.add('hidden');
+      card.classList.remove('visible');
+    })
+  }
+
   showCards() {
     if (!this.firstViewed) return
     const cards = this.el.nativeElement.querySelectorAll('.project-card');
@@ -93,20 +96,19 @@ export class ProjectSection {
     let index = 0
     cards.forEach((card: HTMLElement) => {
       setTimeout(() => {
+        card.classList.remove('hidden');
         card.classList.add('visible');
-      }, index * 200);
-      index += 1
+    }, (index+1) * 100);
+    index += 1
     });
   }
 
-  handleSelect(filter: FilterCategory) {
-    this.selectedCategory.update(current =>
-      current === filter ? "All" : filter
-    );
+  handleFilterSelect = (value: FilterCategory)=>{
+    this.selectedFilterCategory.set(value)
   }
 
   filteredProjects = computed(() => {
-    const selected = this.selectedCategory();
+    const selected = this.selectedFilterCategory();
     const projects = this.data();
 
     if (!projects) return [];

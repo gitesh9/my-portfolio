@@ -1,0 +1,14 @@
+<div class="filter">
+  <div class="label">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-filter">
+      <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+    </svg>
+    <span class="filter-text">Filter by <span class="text-gradient">category</span>:</span>
+  </div>
+  <div class="filter-buttons-div">
+    @for (filter of filterCategories; track $index) {
+      <button class="filter-button" [class.selected]="filter===selectedCategory()" (click)="handleSelect(filter)">{{filter}}</button>
+    }
+  </div>
+</div>
