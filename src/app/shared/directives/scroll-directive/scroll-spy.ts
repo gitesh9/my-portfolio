@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Directive, ElementRef, HostBinding, Input, NgZone, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Directive, HostBinding, Input, NgZone, OnDestroy } from '@angular/core';
 
 @Directive({
   selector: '[appScrollSpy]'
@@ -11,7 +11,7 @@ export class ScrollSpy implements OnDestroy {
 
   private observer!: IntersectionObserver;
 
-  constructor(private el: ElementRef, private zone: NgZone, private cdr: ChangeDetectorRef) { }
+  constructor(private zone: NgZone, private cdr: ChangeDetectorRef) { }
   ngOnInit(): void {
     this.zone.runOutsideAngular(() => {
       const waitForTarget = () => {

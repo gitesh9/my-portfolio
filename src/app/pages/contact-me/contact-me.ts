@@ -1,4 +1,4 @@
-import { Component, ElementRef, signal } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { SectionWrapper } from '@app/shared/components/section-wrapper/section-wrapper';
 import { About } from 'assets/user_data';
 import { DataProvider } from '@app/data-provider';

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { SectionWrapper } from '@app/shared/components/section-wrapper/section-wrapper';
 import { Heading } from "@app/shared/components/heading/heading";
 import { SkillsByCategory } from 'assets/user_data';
 import { DataProvider } from '@app/data-provider';
-import { CommonModule, NgStyle } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Skill } from "./components/skill/skill";
 @Component({
   selector: 'app-skills-section',

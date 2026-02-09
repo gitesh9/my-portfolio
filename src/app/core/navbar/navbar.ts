@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ThemeService } from '@app/theme-service';
 import { CommonModule } from '@angular/common';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { RouterLink } from "@angular/router";
 import { ScrollSpy } from '@app/shared/directives/scroll-directive/scroll-spy';
 
 @Component({
