@@ -1,0 +1,33 @@
+.status-message{
+  margin-top: 2rem;
+  animation: slideUp 0.8s ease-out 0s 1 normal forwards running;
+  animation-delay: 0.5s;
+}
+
+.status-message-block{
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 9999px;
+  background-color: hsl(20 10% 12%);
+  color: hsl(30 10% 55%)
+}
+
+.pulse {
+  width: 0.5rem;
+  height: 0.5rem;
+  /* color: hsl(120 100% 40%); */
+  background-color: rgb(34 197 94 / 1);
+  border-radius: 9999px;
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.5; }
+  100% { opacity: 1; }
+}

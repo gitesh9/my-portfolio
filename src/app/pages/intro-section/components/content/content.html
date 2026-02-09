@@ -1,0 +1,27 @@
+<div class="intro-content">
+  <div class="intro-image">
+    <img src="assets/MyPhoto_edited.jpg" alt="My Image" />
+    <div class="img-circle"></div>
+    <div class="mid-circle img-background"></div>
+  </div>
+  <div>
+    <h1 class="intro-name md:text-7xl lg:text-8xl sm:text-5xl sm:mb-4">
+      <span class="text-gradient">
+        {{data.name}}
+      </span>
+    </h1>
+  </div>
+  <div class="">
+    <span class="intro-title sm:text-lg md:text-xl tracking-wide mb-6 sm:mb-8 typewriter-effect">
+      {{displayedText()}}
+    </span>
+  </div>
+  <p class="intro-description">{{data.shortDescription}}</p>
+  <div class="intro-buttons mt-6">
+    <a routerLink="/" fragment="work-exp" class="btn-intro primary">View My Work</a>
+    <a [href]="data.resumeLink" download="Gitesh_Wankhede.pdf" class="btn-intro secondary">Download Resume</a>
+  </div>
+  @if (data.openForOpportunities) {
+    <app-status />
+  }
+</div>

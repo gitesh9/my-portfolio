@@ -1,18 +1,15 @@
 import { ChangeDetectorRef, Component, signal } from '@angular/core';
-import { RouterLink } from '@angular/router';
 import { DataProvider } from '@app/data-provider';
-import { SectionWrapper } from '@app/shared/components/section-wrapper/section-wrapper';
 import { About } from 'assets/user_data';
-import { Content } from "./components/content/content";
+import { Status } from "../status/status";
 
 @Component({
-  selector: 'app-intro-section',
-  imports: [RouterLink, SectionWrapper, Content],
-  templateUrl: './intro-section.html',
-  styleUrl: './intro-section.css',
+  selector: 'app-content',
+  imports: [Status],
+  templateUrl: './content.html',
+  styleUrl: './content.css',
 })
-export class IntroSection {
-  texts: string[] = ['Full Stack Software Developer', 'Full-Stack Developer • Creating Digital Experiences', 'React Specialist', 'Senior Software Engineer', 'Lead Developer'];
+export class Content {
   displayedText = signal('');
 
   textIndex = 0;

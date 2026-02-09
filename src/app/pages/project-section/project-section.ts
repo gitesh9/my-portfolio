@@ -58,8 +58,6 @@ export class ProjectSection {
       { threshold: 0.2 }
     );
 
-    console.log(cards,filter,heading)
-
     this.headerObserver = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
