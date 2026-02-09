@@ -35,12 +35,7 @@ export class ProjectSection {
     })
   }
 
-  ngOnChanges() {
-    // Reinitialize observers when filter is applied
-  }
-
   ngAfterViewInit() {
-    // Simulate loading items with a delay for animation effect
     this.initializeObservers();
   }
 
