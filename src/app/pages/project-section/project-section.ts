@@ -28,8 +28,8 @@ export class ProjectSection {
       this.hideCards();
       queueMicrotask(() => {
         this.showCards();
-        setTimeout(()=>
-          this.initializeObservers(),600)
+        // setTimeout(()=>
+        //   this.initializeObservers(),600)
       });
     })
   }
@@ -53,11 +53,12 @@ export class ProjectSection {
             setTimeout(() => {
               card.classList.add('visible');
             }, index * 150);
-          } else {
-            // Remove visible class when not in view
-            const card = entry.target as HTMLElement;
-            card.classList.remove('visible');
           }
+          // else {
+          //   // Remove visible class when not in view
+          //   const card = entry.target as HTMLElement;
+          //   card.classList.remove('visible');
+          // }
         });
       },
       { threshold: 0.2 }
