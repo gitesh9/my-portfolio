@@ -6,6 +6,7 @@ import { DataProvider } from '@app/data-provider';
 import { FILTER_CATEGORIES, FilterCategory, Project } from 'assets/user_data';
 import { ProjectCard } from "./components/project-card/project-card";
 import { ProjectFilter } from "./components/project-filter/project-filter";
+import { queueScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-project-section',
@@ -28,12 +29,23 @@ export class ProjectSection {
       this.hideCards();
       queueMicrotask(() => {
         this.showCards();
+        setTimeout(()=>
+          this.initializeObservers(),600)
       });
     })
   }
 
+  ngOnChanges() {
+    // Reinitialize observers when filter is applied
+  }
+
   ngAfterViewInit() {
     // Simulate loading items with a delay for animation effect
+    this.initializeObservers();
+  }
+
+  initializeObservers(){
+    console.log("Observers Created")
     const cards = this.el.nativeElement.querySelectorAll('.project-card');
     const heading = this.el.nativeElement.querySelector('.page-heading');
     const filter = this.el.nativeElement.querySelector('.filter');
@@ -51,6 +63,7 @@ export class ProjectSection {
           } else {
             // Remove visible class when not in view
             const card = entry.target as HTMLElement;
+            console.log('called...',card)
             card.classList.remove('visible');
           }
         });
