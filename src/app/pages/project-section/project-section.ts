@@ -3,10 +3,9 @@ import { Component, computed, effect, ElementRef, signal } from '@angular/core';
 import { Heading } from '@app/shared/components/heading/heading';
 import { SectionWrapper } from '@app/shared/components/section-wrapper/section-wrapper';
 import { DataProvider } from '@app/data-provider';
-import { FILTER_CATEGORIES, FilterCategory, Project } from 'assets/user_data';
+import { FilterCategory, Project } from 'assets/user_data';
 import { ProjectCard } from "./components/project-card/project-card";
 import { ProjectFilter } from "./components/project-filter/project-filter";
-import { queueScheduler } from 'rxjs';
 
 @Component({
   selector: 'app-project-section',

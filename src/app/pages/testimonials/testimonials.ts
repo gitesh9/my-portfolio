@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy, Signal, computed, effect, signal } from '@angular/core';
+import { Component, OnDestroy, computed, signal } from '@angular/core';
 import { DataProvider } from '@app/data-provider';
 import { Card } from '@app/shared/components/card/card';
 import { Heading } from '@app/shared/components/heading/heading';
