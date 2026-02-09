@@ -45,7 +45,6 @@ export class ProjectSection {
   }
 
   initializeObservers(){
-    console.log("Observers Created")
     const cards = this.el.nativeElement.querySelectorAll('.project-card');
     const heading = this.el.nativeElement.querySelector('.page-heading');
     const filter = this.el.nativeElement.querySelector('.filter');
@@ -63,7 +62,6 @@ export class ProjectSection {
           } else {
             // Remove visible class when not in view
             const card = entry.target as HTMLElement;
-            console.log('called...',card)
             card.classList.remove('visible');
           }
         });
@@ -92,8 +90,6 @@ export class ProjectSection {
   hideCards() {
     if (!this.firstViewed) return
     const cards = this.el.nativeElement.querySelectorAll('.project-card');
-    console.log("triggered: ", cards)
-    let index = 0
     cards.forEach((card: HTMLElement) => {
       card.classList.add('hidden');
       card.classList.remove('visible');
@@ -103,7 +99,6 @@ export class ProjectSection {
   showCards() {
     if (!this.firstViewed) return
     const cards = this.el.nativeElement.querySelectorAll('.project-card');
-    console.log("triggered: ", cards)
     let index = 0
     cards.forEach((card: HTMLElement) => {
       setTimeout(() => {

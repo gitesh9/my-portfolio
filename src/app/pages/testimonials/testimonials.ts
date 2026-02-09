@@ -49,7 +49,6 @@ export class Testimonials implements OnDestroy {
   }
 
   startLoop() {
-    console.log(this.data)
     this.intervalId = window.setInterval(() => {
       this.currentIndex.update(i => (i + 1) % this.data.length);
     }, this.DURATION);
