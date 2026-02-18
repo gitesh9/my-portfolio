@@ -140,6 +140,12 @@
   }
 }
 
+@media (max-height:650px) {
+  .scroll-arrow {
+    display: none;
+  }
+}
+
 /* Keyframes */
 @keyframes slideUp {
   from {
