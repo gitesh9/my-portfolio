@@ -43,3 +43,7 @@
     font-size: 0.97rem;
   }
 }
+:host-context([data-theme="light"]) .date{
+  background-color:  hsl(0 0 88%);
+  color: black;
+}

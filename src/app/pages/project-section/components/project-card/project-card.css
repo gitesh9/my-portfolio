@@ -60,8 +60,28 @@
 }
 
 .project-description{
-  overflow: hidden;
+  overflow: auto;
   text-overflow: ellipsis;
+}
+
+/* Custom scrollbar styling */
+.project-description::-webkit-scrollbar {
+  width: 5px;
+  background-color: #000;
+}
+
+.project-description::-webkit-scrollbar-track {
+  background: rgba(255, 113, 113, 0.1);
+  border-radius: 4px;
+}
+
+.project-description::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, hsl(43deg 100% 50%), hsl(37.8deg 100% 79.12%));
+  border-radius: 4px;
+}
+
+.project-description::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, hsl(35 80% 55%), hsl(43 74% 49%));
 }
 
 .project-links-div {

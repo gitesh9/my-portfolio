@@ -149,3 +149,62 @@ button.btn-intro {
   border: 1px solid #ffa700;
   color: #ffa700;
 }
+
+@media (max-width: 600px) {
+  .intro-buttons {
+    justify-self: center;
+    flex-direction: column;
+    font-size: 0.75rem;
+  }
+  .intro-description{
+    font-size: 0.75rem;
+    line-height: 1rem;
+    margin-bottom: 1rem;
+  }
+  .intro-image img{
+    width: 7em;
+    height: 7em;
+    border-radius: 100%;
+    z-index: 2;
+  }
+  .img-circle {
+    width: 7.5em;
+    height: 7.5em;
+  }
+  .img-background {
+    width: 9em;
+    height: 9em;
+    filter: blur(25px);
+  }
+  .bg-circle {
+    width: 10rem;
+    height: 10rem;
+  }
+  .top-circle {
+    top: auto;
+    right: auto;
+    animation-delay: 1s;
+  }
+  .bottom-circle {
+    bottom: auto;
+    left: auto;
+    animation-delay: 0s;
+  }
+  .bottom-circle {
+    bottom: 10%;
+    left: 10%;
+  }
+  .btn-intro {
+    height: 4em;
+    width: 12em;
+    margin: 0 0.25em;
+  }
+  .status-message{
+    font-size: 0.75em;
+  }
+  .intro-title{
+    font-size: 1rem;
+    text-wrap: wrap;
+    max-width: 80%;
+  }
+}

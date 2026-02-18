@@ -19,11 +19,15 @@
 }
 
 .projects-container {
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
-  /* max-width: min(calc(4 * 21rem + 3 * 1.5rem), 80%); */
+  max-width: min(calc(4 * 21rem + 3 * 1.5rem), 80%);
   grid-gap: 2em;
+  max-width: 80%; */
+  display: grid;
   max-width: 80%;
+  grid-template-columns: repeat(auto-fit, minmax(23rem, 32rem));
+  grid-gap: 2em;
 }
 
 @media (max-width: 1900px) {

@@ -160,7 +160,7 @@ export const portfolioData: Portfolio = {
     {
       name: 'SME Boost',
       description: 'Developed a high-performance backend in FastAPI using Python for automating marketing campaigns for SMEs. Integrated OpenAI API for content generation (blogs, posts, stories) and Agentic AI for campaign optimization. The system integrates with social media APIs for publishing, and is hosted on Firebase. The frontend was developed using Angular and styled with Tailwind CSS.',
-      imageUrl: 'assets/SME_Boost.png',
+      imageUrl: 'assets/SME_Boost_full.png',
       tags: ['Angular', 'Python', 'Firebase', 'pipelines'],
       category: ["All", "Consumers", "Hackathons"], // Use a valid category from the Category type
       links: {
@@ -170,45 +170,45 @@ export const portfolioData: Portfolio = {
       },
     },
     {
-      name: "Coding Interview Platform",
-      description: "A platform to learn, practice and have real simulation of interviews with the help of AI",
-      imageUrl: "",
-      tags: ['Python', 'Angular', 'API-Gateway', 'full-stack development', 'Microservices', 'Postgres'],
-      category: ["All", "Educational"],
-      links: {
-        isLive: false,
-        liveUrl: "",
-        gitUrl: ""
-      }
-    },
-    {
       name: "Game Stream",
       description: "A platform to stream and chat with role level accesses and moderation",
-      imageUrl: "assets/GameStream.jpg",
+      imageUrl: "assets/gameStream.svg",
       tags: ['NextJS', 'SQL', 'RTMP', 'WebSockets'],
       category: ["All", "Entertainment", "Video Streaming"],
       links: {
-        isLive: false,
-        liveUrl: "",
+        isLive: true,
+        liveUrl: "https://game-stream.onrender.com",
         gitUrl: "https://github.com/gitesh9/game-stream"
       }
     },
     {
-      name: "Discord",
+      name: "Community Comms",
       description: "A platform to stream and chat with role level accesses and moderation along with making friends and servers...",
       imageUrl: "assets/discord.jpg",
       tags: ['NextJS', 'SQL', 'Websockets'],
       category: ["All", "Communication"],
       links: {
-        isLive: false,
-        liveUrl: "",
+        isLive: true,
+        liveUrl: "https://communitycomms.onrender.com/invite/bac0346a-cb6c-497a-8831-cceb2bc84128",
         gitUrl: "https://github.com/gitesh9/dev-Discord-clone"
       }
     },
+    // {
+    //   name: "WareHouse Management",
+    //   description: "A platform with location based allocation of services and management through a single interface",
+    //   imageUrl: "assets/inventory-management.jpg",
+    //   tags: ['Angular', 'Postgres', 'Python'],
+    //   category: ["All", "Food Delivery"],
+    //   links: {
+    //     isLive: false,
+    //     liveUrl: "",
+    //     gitUrl: ""
+    //   }
+    // },
     {
-      name: "WareHouse Management",
-      description: "A platform with location based allocation of services and management through a single interface",
-      imageUrl: "assets/inventory-management.jpg",
+      name: "Personal AI Agent",
+      description: "AI which acts a personal assistant and helps with answering questions regarding various topics regarding me and my career with the help of openAI API",
+      imageUrl: "assets/Personal-AI-Agent.png",
       tags: ['Angular', 'Postgres', 'Python'],
       category: ["All", "Food Delivery"],
       links: {
@@ -224,15 +224,15 @@ export const portfolioData: Portfolio = {
       tags: ['React'],
       category: ["All", "Open-Source Contributions"],
       links: {
-        isLive: false,
-        liveUrl: "",
+        isLive: true,
+        liveUrl: "https://freetubeapp.io/",
         gitUrl: "https://github.com/gitesh9/FreeTube-Contribution"
       }
     },
     {
       name: "N8N automation",
       description: "A RAG-powered incident agent:Reads through incident logs, runbooks, system alerts Suggests troubleshooting steps, potential resolutions, relevant playbooks Integrates with ticketing systems like AWS S3, AWS CloudWatch, PagerDuty. Why Useful: Cuts downtime, makes even junior engineers more effective, improves response time.",
-      imageUrl: "assets/N8N.png",
+      imageUrl: "assets/N8N.svg",
       tags: ['N8N', 'automation'],
       category: ["All", "Hackathons"],
       links: {
@@ -248,33 +248,33 @@ export const portfolioData: Portfolio = {
       tags: ['React'],
       category: ["All", "Open-Source Contributions"],
       links: {
-        isLive: false,
-        liveUrl: "",
-        gitUrl: "https://github.com/gitesh9/bootstrap-main"
+        isLive: true,
+        liveUrl: "https://github.com/twbs/bootstrap/pull/41243",
+        gitUrl: "https://github.com/gitesh9/bootstrap-main/tree/refactor/box-sizing-consistency"
       }
     },
-    {
-      name: "Secret Website",
-      description: "Working",
-      imageUrl: "",
-      tags: ['React'],
-      category: ["All", "Consumers"],
-      links: {
-        isLive: false,
-        liveUrl: "",
-        gitUrl: "https://github.com/gitesh9/bootstrap-main"
-      }
-    },
+    // {
+    //   name: "Secret Website",
+    //   description: "Working",
+    //   imageUrl: "",
+    //   tags: ['React'],
+    //   category: ["All", "Consumers"],
+    //   links: {
+    //     isLive: false,
+    //     liveUrl: "",
+    //     gitUrl: "https://github.com/gitesh9/bootstrap-main"
+    //   }
+    // },
     {
       name: "Coding Interview Platform",
       description: "A platform to learn, practice and have real simulation of interviews with the help of AI",
-      imageUrl: "",
+      imageUrl: "assets/Coding_Platform.png",
       tags: ['Python', 'Angular', 'API-Gateway', 'full-stack development', 'Microservices', 'Postgres'],
       category: ["All", "Educational"],
       links: {
-        isLive: false,
-        liveUrl: "",
-        gitUrl: ""
+        isLive: true,
+        liveUrl: "https://interviewpracticeplatform.netlify.app/",
+        gitUrl: "https://github.com/gitesh9"
       }
     },
   ],

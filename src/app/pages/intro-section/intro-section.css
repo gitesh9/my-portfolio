@@ -48,7 +48,10 @@
 }
 
 .scroll-arrow {
-  margin: auto;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
   width: 2rem;
   height: 2rem;
   animation: bounce 1s cubic-bezier(0.4, 0, 0.6, 1) infinite;
