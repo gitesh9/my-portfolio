@@ -26,8 +26,12 @@
   max-width: 80%; */
   display: grid;
   max-width: 80%;
-  grid-template-columns: repeat(auto-fit, minmax(22rem, 32rem));
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
   grid-gap: 2em;
+}
+
+.projects-container.filtered {
+  grid-template-columns: repeat(auto-fit, minmax(22rem, 27rem));
 }
 
 @media (max-width: 1900px) {

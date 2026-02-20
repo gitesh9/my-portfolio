@@ -213,8 +213,8 @@ export const portfolioData: Portfolio = {
       category: ["All", "Food Delivery"],
       links: {
         isLive: false,
-        liveUrl: "",
-        gitUrl: ""
+        liveUrl: "https://giteshw-personal-assistant.hf.space",
+        gitUrl: "https://github.com/gitesh9/project-AI-Agent"
       }
     },
     {

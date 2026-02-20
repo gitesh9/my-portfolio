@@ -24,4 +24,15 @@
   @if (data.openForOpportunities) {
     <app-status />
   }
+  <div class="ai-assistant-highlight">
+    <div class="ai-icon">🤖</div>
+    <h3>AI Personal Assistant</h3>
+    <p>Have questions about me? Chat with my intelligent AI assistant for instant insights!</p>
+    <button class="btn-ai" (click)="launchAIAssistant()">Start Chat</button>
+  </div>
 </div>
+
+<!-- AI Chat Modal -->
+@if (showModal()) {
+  <app-ai-chat-modal (close)="closeModal()"></app-ai-chat-modal>
+}

@@ -8,7 +8,7 @@
   <div>
     <app-project-filter (filterChange)="handleFilterSelect($event)" />
   </div>
-  <div class="projects-container">
+  <div class="projects-container" [ngClass]="filteredProjects().length < 3 ? 'filtered' : ''">
     @if (filteredProjects().length==0) {
       Nothing to show right now
     }

@@ -208,3 +208,120 @@ button.btn-intro {
     max-width: 80%;
   }
 }
+
+.ai-assistant-highlight {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(43, 74, 49, 0.1), rgba(35, 80, 55, 0.1));
+  border-radius: 1rem;
+  border: 1px solid rgba(43, 74, 49, 0.2);
+  text-align: center;
+  animation: slideUp 1s ease-out 0.5s 1 normal forwards running;
+  opacity: 0;
+}
+
+.ai-assistant-highlight.animate {
+  opacity: 1;
+}
+
+.ai-icon {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.ai-assistant-highlight h3 {
+  font-family: Playfair Display, serif;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.ai-assistant-highlight p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+.btn-ai {
+  background: var(--gradient-gold);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-ai:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideIn {
+  from { transform: scale(0.9) translateY(-20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@media (max-width: 768px) {
+  .ai-assistant-highlight {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    margin-bottom: 2rem; /* Ensure space for scroll arrow */
+  }
+
+  .ai-icon {
+    font-size: 2.5rem;
+  }
+
+  .ai-assistant-highlight h3 {
+    font-size: 1.25rem;
+  }
+
+  .ai-assistant-highlight p {
+    font-size: 0.9rem;
+  }
+
+  .btn-ai {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ai-assistant-highlight {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    margin-bottom: 3rem; /* More space for mobile scroll arrow */
+  }
+
+  .ai-icon {
+    font-size: 2rem;
+  }
+
+  .ai-assistant-highlight h3 {
+    font-size: 1.1rem;
+  }
+
+  .ai-assistant-highlight p {
+    font-size: 0.85rem;
+  }
+
+  .btn-ai {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}

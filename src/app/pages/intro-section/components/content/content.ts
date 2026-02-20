@@ -2,10 +2,11 @@ import { ChangeDetectorRef, Component, signal } from '@angular/core';
 import { DataProvider } from '@app/data-provider';
 import { About } from 'assets/user_data';
 import { Status } from "../status/status";
+import { AiChatModal } from "../ai-chat-modal/ai-chat-modal";
 
 @Component({
   selector: 'app-content',
-  imports: [Status],
+  imports: [Status, AiChatModal],
   templateUrl: './content.html',
   styleUrl: './content.css',
 })
@@ -21,7 +22,9 @@ export class Content {
   pauseAfterDelete = 300;
   data: About
 
-  constructor(protected dataProvider: DataProvider, private cdr: ChangeDetectorRef){
+  showModal = signal(false);
+
+  constructor(protected dataProvider: DataProvider, private cdr: ChangeDetectorRef) {
     this.data = dataProvider.getAbout()
   }
 
@@ -48,5 +51,17 @@ export class Content {
       this.charIndex = 0;
       this.type()
     }
+  }
+
+  launchAIAssistant() {
+    this.showModal.set(true);
+    document.body.style.overflow = 'hidden';
+    console.log("Launching AI Assistant...", this.showModal());
+  }
+
+  closeModal() {
+    // Close Modal
+    document.body.style.overflow = 'auto';
+    this.showModal.set(false);
   }
 }
