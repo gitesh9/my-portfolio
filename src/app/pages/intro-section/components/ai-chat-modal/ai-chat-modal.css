@@ -67,7 +67,7 @@
 }
 
 .floating-chat-btn .chat-icon {
-  font-size: 0.95rem;
+  font-size: clamp(0.75rem, 2vw, 0.95rem);
   font-weight: 600;
   color: #111827;
   white-space: nowrap;
@@ -237,6 +237,19 @@
     max-height: 550px;
     right: 0;
   }
+
+  .floating-chat-btn {
+    height: 46px;
+    padding: 0 1rem;
+  }
+
+  .floating-chat-btn .chat-icon {
+    font-size: 0.85rem;
+  }
+
+  .floating-chat-btn.active {
+    width: 46px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -250,13 +263,35 @@
   }
 
   .floating-chat-btn {
-    height: 44px;
-    padding: 0 1rem;
-    font-size: 0.85rem;
+    height: 42px;
+    padding: 0 0.85rem;
+  }
+
+  .floating-chat-btn .chat-icon {
+    font-size: 0.75rem;
   }
 
   .floating-chat-btn.active {
-    width: 44px;
+    width: 42px;
     padding: 0;
+  }
+
+  .floating-chat-btn .close-icon {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .floating-chat-btn {
+    height: 40px;
+    padding: 0 0.75rem;
+  }
+
+  .floating-chat-btn .chat-icon {
+    font-size: 0.7rem;
+  }
+
+  .floating-chat-btn.active {
+    width: 40px;
   }
 }
