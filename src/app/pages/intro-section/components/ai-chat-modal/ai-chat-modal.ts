@@ -10,6 +10,7 @@ import { Status } from "../status/status";
 })
 export class AiChatModal {
   isOpen = signal(false);
+  isLoading = signal(true);
 
   constructor() {
     effect(() => {
@@ -18,6 +19,10 @@ export class AiChatModal {
         document.body.style.overflow = 'hidden';
       } else {
         document.body.style.overflow = 'auto';
+      }
+      // Reset loading state when panel opens
+      if (isModalOpen) {
+        this.isLoading.set(true);
       }
     });
   }
@@ -28,5 +33,9 @@ export class AiChatModal {
 
   closeChat() {
     this.isOpen.set(false);
+  }
+
+  onIframeLoad() {
+    this.isLoading.set(false);
   }
 }

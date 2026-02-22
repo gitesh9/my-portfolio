@@ -1,4 +1,4 @@
-<div class="status-message" style="opacity: 1;">
+<div [ngClass]="{'status-message': background === 'tag'}" style="opacity: 1;">
   <span
   class="status-message-block inline-flex items-center gap-2 px-4 py-2 bg-secondary/50 border border-border rounded-full text-xs sm:text-sm text-muted-foreground" [ngClass]="{'status-tag': background === 'tag'}">
   <span class="pulse w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>

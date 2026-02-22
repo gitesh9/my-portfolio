@@ -6,12 +6,23 @@
         <button class="close-btn" (click)="closeChat()">×</button>
       </div>
       <div class="chat-body">
-        <iframe src="https://giteshw-personal-assistant.hf.space" frameborder="0"></iframe>
+        @if (isLoading()) {
+          <div class="loader-overlay">
+            <div class="loader-spinner"></div>
+            <span class="loader-text">Loading AI Assistant...</span>
+          </div>
+        }
+        <iframe
+          src="https://giteshw-personal-assistant.hf.space"
+          frameborder="0"
+          (load)="onIframeLoad()"
+          [class.hidden]="isLoading()"
+        ></iframe>
       </div>
     </div>
   }
   <button class="floating-chat-btn" (click)="toggleChat()" [class.active]="isOpen()">
-    <span class="chat-icon">💬</span>
-    <span class="close-icon">x</span>
+    <span class="chat-icon">💬 AI Assistant</span>
+    <span class="close-icon">×</span>
   </button>
 </div>
