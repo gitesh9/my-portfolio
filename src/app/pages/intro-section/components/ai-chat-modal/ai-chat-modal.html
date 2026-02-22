@@ -1,12 +1,17 @@
-<!-- AI Chat Modal -->
-<div class="ai-modal" *ngIf="true" (click)="closeModal()">
-  <div class="modal-content" (click)="$event.stopPropagation()">
-    <div class="modal-header">
-      <h3>AI Personal Assistant</h3>
-      <button class="close-btn" (click)="closeModal()">×</button>
+<div class="floating-chat-container">
+  @if (isOpen()) {
+    <div class="chat-panel">
+      <div class="chat-header">
+        <app-status statusText="Ask me anything" />
+        <button class="close-btn" (click)="closeChat()">×</button>
+      </div>
+      <div class="chat-body">
+        <iframe src="https://giteshw-personal-assistant.hf.space" frameborder="0"></iframe>
+      </div>
     </div>
-    <div class="modal-body">
-      <iframe src="https://giteshw-personal-assistant.hf.space" width="100%" height="60vh" frameborder="0"></iframe>
-    </div>
-  </div>
+  }
+  <button class="floating-chat-btn" (click)="toggleChat()" [class.active]="isOpen()">
+    <span class="chat-icon">💬</span>
+    <span class="close-icon">x</span>
+  </button>
 </div>

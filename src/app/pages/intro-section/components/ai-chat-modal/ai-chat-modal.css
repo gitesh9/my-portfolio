@@ -1,108 +1,202 @@
-/* AI Chat Modal */
-.ai-modal {
+/* Floating Chat Button & Panel */
+.floating-chat-container {
   position: fixed;
-  top: 0;
-  left: 0;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+}
+
+@media (max-width: 480px) {
+  .floating-chat-container {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* Native CSS animations for panel enter/leave */
+.chat-panel.ng-enter {
+  animation: panelEnter 300ms ease-out;
+}
+
+.chat-panel.ng-leave {
+  animation: panelLeave 200ms ease-in;
+}
+
+@keyframes panelEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes panelLeave {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+}
+
+.floating-chat-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, hsl(43 74% 49%), hsl(35 80% 55%));
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-chat-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
+}
+
+.floating-chat-btn .chat-icon,
+.floating-chat-btn .close-icon {
+  font-size: 1.5rem;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  position: absolute;
   width: 100%;
   height: 100%;
-  min-width: 50vw;
-  background-color: rgba(0, 0, 0, 0.7);
   display: flex;
+  align-items: center;
   justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  animation: fadeIn 0.3s ease-out;
 }
 
-.modal-content {
-  background: var(--background);
+.floating-chat-btn .close-icon {
+  opacity: 0;
+  transform: rotate(-90deg);
+  font-size: 1.8rem;
+  color: white;
+  padding-bottom: 5px;
+}
+
+.floating-chat-btn.active .chat-icon {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.floating-chat-btn.active .close-icon {
+  opacity: 1;
+  transform: rotate(0);
+}
+
+.chat-panel {
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  width: 420px;
+  height: 600px;
   border-radius: 1rem;
-  width: 90%;
-  max-width: 600px;
-  max-height: 80vh;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  animation: slideIn 0.3s ease-out;
+  border: 1px solid var(--border);
+  background: var(--card-background, var(--background));
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
 }
 
-.modal-header {
+.chat-header {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
+  justify-content: space-between;
+  padding: 1rem 1.3rem;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
-  background: var(--card-background);
 }
 
-.modal-header h3 {
-  margin: 0;
-  font-family: Playfair Display, serif;
-  font-size: 1.25rem;
-  color: var(--text-primary);
+.chat-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.close-btn {
+.status-dot {
+  width: 8px;
+  height: 8px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.status-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+}
+
+.chat-header .close-btn {
   background: none;
   border: none;
   font-size: 1.5rem;
+  color: var(--muted-foreground, #888);
   cursor: pointer;
-  color: var(--text-secondary);
+  transition: color 0.2s ease;
+  line-height: 1;
   padding: 0;
-  width: 30px;
-  height: 30px;
+}
+
+.chat-header .close-btn:hover {
+  color: var(--foreground);
+}
+
+.icon-div {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  transition: background-color 0.2s;
-}
-
-.close-btn:hover {
-  background-color: var(--muted);
-}
-
-.modal-body {
-  padding: 0;
-}
-
-.modal-body iframe {
+  height: 100%;
   width: 100%;
-  height: 60vh;
+}
+
+.chat-body {
+  height: calc(100% - 50px);
+  overflow: hidden;
+}
+
+.chat-body iframe {
+  width: 100%;
+  height: 100%;
   border: none;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideIn {
-  from { transform: scale(0.9) translateY(-20px); opacity: 0; }
-  to { transform: scale(1) translateY(0); opacity: 1; }
+  display: block;
 }
 
 @media (max-width: 768px) {
-  .modal-content {
-    width: 95%;
-    max-height: 90vh;
-  }
-
-  .modal-body iframe {
-    height: 400px;
+  .chat-panel {
+    width: calc(100vw - 3rem);
+    height: 70vh;
+    max-height: 550px;
+    right: 0;
   }
 }
 
 @media (max-width: 480px) {
-  .modal-content {
-    width: 98%;
-    max-height: 95vh;
+  .chat-panel {
+    position: fixed;
+    bottom: 70px;
+    right: 1rem;
+    width: calc(100vw - 2rem);
+    height: 60vh;
+    max-height: 450px;
   }
 
-  .modal-body iframe {
-    height: 350px;
-  }
-
-  .modal-header h3 {
-    font-size: 1.1rem;
+  .floating-chat-btn {
+    width: 50px;
+    height: 50px;
   }
 }
