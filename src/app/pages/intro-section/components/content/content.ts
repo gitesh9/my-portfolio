@@ -2,10 +2,11 @@ import { ChangeDetectorRef, Component, signal } from '@angular/core';
 import { DataProvider } from '@app/data-provider';
 import { About } from 'assets/user_data';
 import { Status } from "../status/status";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-content',
-  imports: [Status],
+  imports: [Status, RouterLink],
   templateUrl: './content.html',
   styleUrl: './content.css',
 })
