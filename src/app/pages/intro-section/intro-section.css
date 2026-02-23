@@ -49,7 +49,7 @@
 
 .scroll-arrow {
   position: absolute;
-  bottom: 10%;
+  bottom: 8%;
   transform: translateX(-50%);
   width: 2rem;
   height: 2rem;
@@ -139,7 +139,7 @@
   }
 }
 
-@media (max-height:650px) {
+@media (max-height:700px) {
   .scroll-arrow {
     display: none;
   }

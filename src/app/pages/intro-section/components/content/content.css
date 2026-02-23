@@ -92,7 +92,7 @@
 }
 
 .intro-description {
-  max-width: 50rem;
+  max-width: 60%;
   margin-left: auto;
   margin-right: auto;
   font-size: 1.25rem;
@@ -101,6 +101,25 @@
   transform: translateY(40px);
   animation: slideUp 0.8s ease-out 0s 1 normal forwards running;
   animation-delay: 0.05s;
+  text-align: justify;
+  text-align-last: center;
+}
+
+.intro-description::before,
+.intro-description::after {
+  content: '';
+  width: 60%;
+  height: 100%;
+}
+
+.intro-description::before {
+  float: left;
+  shape-outside: polygon(0 0, 100% 0, 0 100%);
+}
+
+.intro-description::after {
+  float: right;
+  shape-outside: polygon(100% 0, 0 0, 100% 100%);
 }
 
 .intro-buttons {
@@ -156,14 +175,20 @@ button.btn-intro {
 
 @media (max-width: 600px) {
   .intro-buttons {
-    justify-self: center;
     flex-direction: column;
+    align-items: center;
     font-size: 0.75rem;
   }
   .intro-description{
+    width: 100%;
+    max-width: 95%;
     font-size: 0.75rem;
     line-height: 1rem;
     margin-bottom: 1rem;
+  }
+  .intro-description::before,
+  .intro-description::after {
+    width: 45%;
   }
   .intro-image img{
     width: 7em;
