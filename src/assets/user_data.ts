@@ -151,7 +151,7 @@ export const portfolioData: Portfolio = {
     email: 'giteshwan98@gmail.com',
     phone: '+91 7219583781',
     roleTitles: ['Full-stack developer • Creating Digital Experiences', 'Senior Software Engineer'],
-    shortDescription: "Hi, I'm Gitesh — a full-stack software engineer specializing in building scalable web applications. I transform complex problems into elegant, user-friendly solutions.",
+    shortDescription: "I design and build scalable, secure distributed systems as a full-stack engineer, integrating microservices architecture and AI-driven semantic retrieval. With 3+ years of enterprise experience, I’ve delivered accessible platforms for 50K+ users, built production-grade AI assistants, and led CI/CD and deployment workflows to ensure reliable delivery at scale",
     // resumeLink: 'https://drive.google.com/uc?export=download&id=1REkBfGqAD9GpdBquTE7xLujFSaao7O-P',
     resumeLink: 'assets/Gitesh_Wankhede_Resume.pdf',
     openForOpportunities: true,
@@ -171,9 +171,9 @@ export const portfolioData: Portfolio = {
     },
     {
       name: "Game Stream",
-      description: "A platform to stream and chat with role level accesses and moderation",
+      description: "Low-latency real-time streaming platform supporting RTMP ingestion and WebSocket-based chat communication. Designed role-based authorization and moderation controls with scalable backend handling concurrent streaming sessions.",
       imageUrl: "assets/gameStream.svg",
-      tags: ['NextJS', 'SQL', 'RTMP', 'WebSockets'],
+      tags: ['Next.js', 'WebSockets', 'RTMP', 'Real-Time Systems', 'Authorization Architecture'],
       category: ["All", "Entertainment", "Video Streaming"],
       links: {
         isLive: true,
@@ -183,9 +183,9 @@ export const portfolioData: Portfolio = {
     },
     {
       name: "Community Comms",
-      description: "A platform to stream and chat with role level accesses and moderation along with making friends and servers...",
+      description: "Distributed real-time communication platform inspired by server-based community systems. Engineered multi-tenant architecture with role-based access control and WebSocket-driven bidirectional messaging for scalable multi-user interaction.",
       imageUrl: "assets/discord.jpg",
-      tags: ['NextJS', 'SQL', 'Websockets'],
+      tags: ['Next.js', 'WebSockets', 'PostgreSQL', 'Distributed Messaging', 'RBAC'],
       category: ["All", "Communication"],
       links: {
         isLive: true,
@@ -207,9 +207,9 @@ export const portfolioData: Portfolio = {
     // },
     {
       name: "Personal AI Agent",
-      description: "AI which acts a personal assistant and helps with answering questions regarding various topics regarding me and my career with the help of openAI API",
+      description: "Production-oriented AI assistant built using Retrieval-Augmented Generation (RAG). Implemented document ingestion, embedding pipelines, vector similarity search, and OpenAI tool-calling for context-aware responses. Designed stateful conversation handling and persistence layer for lead capture and observability.",
       imageUrl: "assets/Personal-AI-Agent.png",
-      tags: ['Angular', 'Postgres', 'Python'],
+      tags: ['RAG', 'LLMs', 'Vector Search', 'Embeddings', 'OpenAI API', 'System Design'],
       category: ["All", "Food Delivery"],
       links: {
         isLive: false,
@@ -219,9 +219,9 @@ export const portfolioData: Portfolio = {
     },
     {
       name: "Freetube",
-      description: "A contribution to freetube platform where I build a featre and reduce the latenc of the app",
+      description: "Optimized playlist sorting and filtering logic in a large-scale open-source React application. Reduced unnecessary network calls by implementing local computation strategy, improving performance and reducing load by 70%.",
       imageUrl: "assets/FreeTube.png",
-      tags: ['React'],
+      tags: ['React', 'Performance Optimization', 'Client-Side Architecture', 'Open Source'],
       category: ["All", "Open-Source Contributions"],
       links: {
         isLive: true,
@@ -231,9 +231,9 @@ export const portfolioData: Portfolio = {
     },
     {
       name: "N8N automation",
-      description: "A RAG-powered incident agent:Reads through incident logs, runbooks, system alerts Suggests troubleshooting steps, potential resolutions, relevant playbooks Integrates with ticketing systems like AWS S3, AWS CloudWatch, PagerDuty. Why Useful: Cuts downtime, makes even junior engineers more effective, improves response time.",
+      description: "A RAG-powered incident agent:Reads through incident logs, runbooks, system alerts Suggests troubleshooting steps, potential resolutions, relevant playbooks Integrates with ticketing systems like AWS S3, AWS CloudWatch, PagerDuty. Why Useful: Cuts downtime, makes even junior engineers more effective, reducing mean-time-to-resolution (MTTR).",
       imageUrl: "assets/N8N.svg",
-      tags: ['N8N', 'automation'],
+      tags: ['RAG', 'Incident Automation', 'AWS', 'Observability', 'Distributed Systems', 'N8N'],
       category: ["All", "Hackathons"],
       links: {
         isLive: false,
@@ -243,9 +243,9 @@ export const portfolioData: Portfolio = {
     },
     {
       name: "Bootstrap",
-      description: "A contribution to freetube platform where I build a featre and reduce the latenc of the app",
+      description: "Contributed cross-browser layout consistency improvement to Bootstrap (#41243) by refining CSS inheritance behavior. Enhanced rendering stability across modern browser engines.",
       imageUrl: "assets/Bootstrap.png",
-      tags: ['React'],
+      tags: ['CSS Architecture', 'Frontend Systems', 'Open Source'],
       category: ["All", "Open-Source Contributions"],
       links: {
         isLive: true,
@@ -267,9 +267,9 @@ export const portfolioData: Portfolio = {
     // },
     {
       name: "Coding Interview Platform",
-      description: "A platform to learn, practice and have real simulation of interviews with the help of AI",
+      description: "Microservices-based interview simulation platform supporting real-time collaboration. Designed API gateway routing, gRPC-based inter-service communication, PostgreSQL persistence, and semantic search for contextual question retrieval. Built for scalability and service isolation.",
       imageUrl: "assets/Coding_Platform.png",
-      tags: ['Python', 'Angular', 'API-Gateway', 'full-stack development', 'Microservices', 'Postgres'],
+      tags: ['Microservices', 'gRPC', 'API Gateway', 'WebSockets', 'PostgreSQL', 'Semantic Search'],
       category: ["All", "Educational"],
       links: {
         isLive: true,
