@@ -14,15 +14,17 @@ export const SKILL_CATEGORIES = [
 
 export const FILTER_CATEGORIES = [
   'All',
-  'E-commerce',
+  // 'E-commerce',
   'Communication',
   'Video Streaming',
   'Entertainment',
   'Consumers',
   'Open-Source Contributions',
-  'Food Delivery',
+  // 'Food Delivery',
   'Hackathons',
   'Educational',
+  'AI',
+  'RAG'
 ] as const;
 
 export const SKILLS = [
@@ -162,7 +164,7 @@ export const portfolioData: Portfolio = {
       description: 'Developed a high-performance backend in FastAPI using Python for automating marketing campaigns for SMEs. Integrated OpenAI API for content generation (blogs, posts, stories) and Agentic AI for campaign optimization. The system integrates with social media APIs for publishing, and is hosted on Firebase. The frontend was developed using Angular and styled with Tailwind CSS.',
       imageUrl: 'assets/SME_Boost_full.png',
       tags: ['Angular', 'Python', 'Firebase', 'pipelines'],
-      category: ["All", "Consumers", "Hackathons"], // Use a valid category from the Category type
+      category: ["All", "Consumers", "Hackathons", "AI"], // Use a valid category from the Category type
       links: {
         isLive: true,
         liveUrl: 'https://sme-boost-463309.web.app/services',
@@ -186,7 +188,7 @@ export const portfolioData: Portfolio = {
       description: "Distributed real-time communication platform inspired by server-based community systems. Engineered multi-tenant architecture with role-based access control and WebSocket-driven bidirectional messaging for scalable multi-user interaction.",
       imageUrl: "assets/discord.jpg",
       tags: ['Next.js', 'WebSockets', 'PostgreSQL', 'Distributed Messaging', 'RBAC'],
-      category: ["All", "Communication"],
+      category: ["All", "Entertainment", "Communication"],
       links: {
         isLive: true,
         liveUrl: "https://communitycomms.onrender.com/invite/bac0346a-cb6c-497a-8831-cceb2bc84128",
@@ -210,7 +212,7 @@ export const portfolioData: Portfolio = {
       description: "Production-oriented AI assistant built using Retrieval-Augmented Generation (RAG). Implemented document ingestion, embedding pipelines, vector similarity search, and OpenAI tool-calling for context-aware responses. Designed stateful conversation handling and persistence layer for lead capture and observability.",
       imageUrl: "assets/Personal-AI-Agent.png",
       tags: ['RAG', 'LLMs', 'Vector Search', 'Embeddings', 'OpenAI API', 'System Design'],
-      category: ["All", "Food Delivery"],
+      category: ["All", "AI", "RAG"],
       links: {
         isLive: false,
         liveUrl: "https://giteshw-personal-assistant.hf.space",
@@ -234,7 +236,7 @@ export const portfolioData: Portfolio = {
       description: "A RAG-powered incident agent:Reads through incident logs, runbooks, system alerts Suggests troubleshooting steps, potential resolutions, relevant playbooks Integrates with ticketing systems like AWS S3, AWS CloudWatch, PagerDuty. Why Useful: Cuts downtime, makes even junior engineers more effective, reducing mean-time-to-resolution (MTTR).",
       imageUrl: "assets/N8N.svg",
       tags: ['RAG', 'Incident Automation', 'AWS', 'Observability', 'Distributed Systems', 'N8N'],
-      category: ["All", "Hackathons"],
+      category: ["All", "Hackathons", "AI", "RAG"],
       links: {
         isLive: false,
         liveUrl: "",
@@ -270,7 +272,7 @@ export const portfolioData: Portfolio = {
       description: "Microservices-based interview simulation platform supporting real-time collaboration. Designed API gateway routing, gRPC-based inter-service communication, PostgreSQL persistence, and semantic search for contextual question retrieval. Built for scalability and service isolation.",
       imageUrl: "assets/Coding_Platform.png",
       tags: ['Microservices', 'gRPC', 'API Gateway', 'WebSockets', 'PostgreSQL', 'Semantic Search'],
-      category: ["All", "Educational"],
+      category: ["All", "Educational", "AI"],
       links: {
         isLive: true,
         liveUrl: "https://interviewpracticeplatform.netlify.app/",
