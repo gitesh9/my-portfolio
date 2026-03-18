@@ -177,7 +177,7 @@ export const portfolioData: Portfolio = {
       category: ["All", "Entertainment", "Video Streaming"],
       links: {
         isLive: true,
-        liveUrl: "https://game-stream.onrender.com",
+        liveUrl: "https://game-stream-five.vercel.app",
         gitUrl: "https://github.com/gitesh9/game-stream"
       }
     },
@@ -189,7 +189,7 @@ export const portfolioData: Portfolio = {
       category: ["All", "Communication"],
       links: {
         isLive: true,
-        liveUrl: "https://communitycomms.onrender.com/invite/bac0346a-cb6c-497a-8831-cceb2bc84128",
+        liveUrl: "https://dev-discord-clone-five.vercel.app/invite/bac0346a-cb6c-497a-8831-cceb2bc84128",
         gitUrl: "https://github.com/gitesh9/dev-Discord-clone"
       }
     },
