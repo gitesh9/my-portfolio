@@ -214,7 +214,7 @@ export const portfolioData: Portfolio = {
       tags: ['RAG', 'LLMs', 'Vector Search', 'Embeddings', 'OpenAI API', 'System Design'],
       category: ["All", "AI", "RAG"],
       links: {
-        isLive: false,
+        isLive: true,
         liveUrl: "https://giteshw-personal-assistant.hf.space",
         gitUrl: "https://github.com/gitesh9/project-AI-Agent"
       }
