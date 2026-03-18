@@ -164,7 +164,7 @@ div.project-card.visible:hover h2{
   margin-top: 0;
   font-family: Inter, sans-serif;
   color: hsl(var(--muted-foreground));
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   -webkit-text-size-adjust: 100%;
 }
 

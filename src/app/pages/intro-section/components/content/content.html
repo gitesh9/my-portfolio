@@ -22,17 +22,8 @@
     <a [href]="data.resumeLink" download="Gitesh_Wankhede.pdf" class="btn-intro secondary">Download Resume</a>
   </div>
   @if (data.openForOpportunities) {
-    <app-status />
-  }
-  <div class="ai-assistant-highlight">
-    <div class="ai-icon">🤖</div>
-    <h3>AI Personal Assistant</h3>
-    <p>Have questions about me? Chat with my intelligent AI assistant for instant insights!</p>
-    <button class="btn-ai" (click)="launchAIAssistant()">Start Chat</button>
-  </div>
+    <div class="mt-2">
+      <app-status statusText="Open for opportunities" background="tag" />
+    </div>
+    }
 </div>
-
-<!-- AI Chat Modal -->
-@if (showModal()) {
-  <app-ai-chat-modal (close)="closeModal()"></app-ai-chat-modal>
-}
