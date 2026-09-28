@@ -160,16 +160,16 @@ export const portfolioData: Portfolio = {
   },
   projects: [
     {
-      name: 'SME Boost',
-      description: 'Developed a high-performance backend in FastAPI using Python for automating marketing campaigns for SMEs. Integrated OpenAI API for content generation (blogs, posts, stories) and Agentic AI for campaign optimization. The system integrates with social media APIs for publishing, and is hosted on Firebase. The frontend was developed using Angular and styled with Tailwind CSS.',
-      imageUrl: 'assets/SME_Boost_full.png',
-      tags: ['Angular', 'Python', 'Firebase', 'pipelines'],
-      category: ["All", "Consumers", "Hackathons", "AI"], // Use a valid category from the Category type
+      name: "Coding Interview Platform",
+      description: "Microservices-based interview simulation platform supporting real-time collaboration. Designed API gateway routing, gRPC-based inter-service communication, PostgreSQL persistence, and semantic search for contextual question retrieval. Built for scalability and service isolation.",
+      imageUrl: "assets/Coding_Platform.png",
+      tags: ['Microservices', 'gRPC', 'API Gateway', 'WebSockets', 'PostgreSQL', 'Semantic Search'],
+      category: ["All", "Educational", "AI"],
       links: {
         isLive: true,
-        liveUrl: 'https://sme-boost-463309.web.app/services',
-        gitUrl: 'https://github.com/gitesh9/SMEBoost',
-      },
+        liveUrl: "https://interviewpracticeplatform.netlify.app/",
+        gitUrl: "https://github.com/gitesh9"
+      }
     },
     {
       name: "Game Stream",
@@ -191,9 +191,21 @@ export const portfolioData: Portfolio = {
       category: ["All", "Entertainment", "Communication"],
       links: {
         isLive: true,
-        liveUrl: "https://dev-discord-clone-five.vercel.app/invite/bac0346a-cb6c-497a-8831-cceb2bc84128",
+        liveUrl: "https://dev-discord-clone.vercel.app/",
         gitUrl: "https://github.com/gitesh9/dev-Discord-clone"
       }
+    },
+    {
+      name: 'SME Boost',
+      description: 'Developed a high-performance backend in FastAPI using Python for automating marketing campaigns for SMEs. Integrated OpenAI API for content generation (blogs, posts, stories) and Agentic AI for campaign optimization. The system integrates with social media APIs for publishing, and is hosted on Firebase. The frontend was developed using Angular and styled with Tailwind CSS.',
+      imageUrl: 'assets/SME_Boost_full.png',
+      tags: ['Angular', 'Python', 'Firebase', 'pipelines'],
+      category: ["All", "Consumers", "Hackathons", "AI"], // Use a valid category from the Category type
+      links: {
+        isLive: true,
+        liveUrl: 'https://sme-boost-463309.web.app/services',
+        gitUrl: 'https://github.com/gitesh9/SMEBoost',
+      },
     },
     // {
     //   name: "WareHouse Management",
@@ -267,18 +279,6 @@ export const portfolioData: Portfolio = {
     //     gitUrl: "https://github.com/gitesh9/bootstrap-main"
     //   }
     // },
-    {
-      name: "Coding Interview Platform",
-      description: "Microservices-based interview simulation platform supporting real-time collaboration. Designed API gateway routing, gRPC-based inter-service communication, PostgreSQL persistence, and semantic search for contextual question retrieval. Built for scalability and service isolation.",
-      imageUrl: "assets/Coding_Platform.png",
-      tags: ['Microservices', 'gRPC', 'API Gateway', 'WebSockets', 'PostgreSQL', 'Semantic Search'],
-      category: ["All", "Educational", "AI"],
-      links: {
-        isLive: true,
-        liveUrl: "https://interviewpracticeplatform.netlify.app/",
-        gitUrl: "https://github.com/gitesh9"
-      }
-    },
   ],
   skills: {
     "Front-end development": [
