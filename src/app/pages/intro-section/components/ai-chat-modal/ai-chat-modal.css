@@ -48,7 +48,7 @@
   height: 48px;
   padding: 0 1.25rem;
   border-radius: 9999px;
-  background: linear-gradient(135deg, hsl(0deg 0% 34.37%), hsl(35 80% 55%));
+  background: linear-gradient(135deg, hsl(23.12deg 100% 61.48%), hsl(35 80% 55%));
   border: none;
   cursor: pointer;
   display: flex;
@@ -63,7 +63,7 @@
 .floating-chat-btn:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-  background: linear-gradient(135deg, hsl(0, 0%, 50%), #ffa700);
+  background: linear-gradient(135deg, hsl(16.82deg 100% 58.86%), #ffa700);
 }
 
 .floating-chat-btn .chat-icon {

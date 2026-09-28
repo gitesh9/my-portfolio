@@ -141,3 +141,11 @@
 :host-context([data-theme="light"]) .project-image-div {
   background: whitesmoke;
 }
+
+.hover-link.disabled,
+.project-link.disabled {
+  opacity: 0.3;
+  pointer-events: none;
+  cursor: not-allowed;
+  filter: grayscale(100%);
+}
